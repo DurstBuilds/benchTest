@@ -1,0 +1,22 @@
+# Colcon / ament build artifacts (machine-specific; never commit)
+build/
+install/
+log/
+
+# CMake / IDE
+CMakeCache.txt
+CMakeFiles/
+*.user
+.vscode/
+.idea/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Local dependency extracts / editor junk
+.deps/
+*.swp
+*~
+.DS_Store

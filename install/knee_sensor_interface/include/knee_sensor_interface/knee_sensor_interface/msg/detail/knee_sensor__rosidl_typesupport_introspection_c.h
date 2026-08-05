@@ -1,1 +1,0 @@
-/home/jdurs/benchTest/build/knee_sensor_interface/rosidl_typesupport_introspection_c/knee_sensor_interface/msg/detail/knee_sensor__rosidl_typesupport_introspection_c.h

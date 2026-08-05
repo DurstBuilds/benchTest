@@ -1,6 +1,0 @@
-{
-  "package_name": "knee_sensor_interface",
-  "non_idl_tuples": [
-    "/home/jdurs/benchTest/src/knee_sensor_interface:msg/KneeSensor.msg"
-  ]
-}
