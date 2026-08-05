@@ -4,3 +4,5 @@ knee_sensor_interface.egg-info/PKG-INFO
 knee_sensor_interface.egg-info/SOURCES.txt
 knee_sensor_interface.egg-info/dependency_links.txt
 knee_sensor_interface.egg-info/top_level.txt
+knee_sensor_interface/msg/__init__.py
+knee_sensor_interface/msg/_knee_sensor.py

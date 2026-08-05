@@ -76,6 +76,8 @@ all: CMakeFiles/knee_sensor_interface__rosidl_generator_py.dir/all
 all: CMakeFiles/knee_sensor_interface_s__rosidl_typesupport_introspection_c.dir/all
 all: CMakeFiles/knee_sensor_interface_s__rosidl_typesupport_fastrtps_c.dir/all
 all: CMakeFiles/knee_sensor_interface_s__rosidl_typesupport_c.dir/all
+all: CMakeFiles/knee_sensor_interface_node.dir/all
+all: CMakeFiles/calculate_dead_zone.dir/all
 all: knee_sensor_interface__py/all
 all: knee_sensor_interface__rs/all
 .PHONY : all
@@ -104,6 +106,8 @@ clean: CMakeFiles/knee_sensor_interface__rosidl_generator_py.dir/clean
 clean: CMakeFiles/knee_sensor_interface_s__rosidl_typesupport_introspection_c.dir/clean
 clean: CMakeFiles/knee_sensor_interface_s__rosidl_typesupport_fastrtps_c.dir/clean
 clean: CMakeFiles/knee_sensor_interface_s__rosidl_typesupport_c.dir/clean
+clean: CMakeFiles/knee_sensor_interface_node.dir/clean
+clean: CMakeFiles/calculate_dead_zone.dir/clean
 clean: knee_sensor_interface__py/clean
 clean: knee_sensor_interface__rs/clean
 .PHONY : clean
@@ -197,13 +201,13 @@ CMakeFiles/knee_sensor_interface_uninstall.dir/clean:
 CMakeFiles/knee_sensor_interface.dir/all: CMakeFiles/knee_sensor_interface__rosidl_generator_type_description.dir/all
 CMakeFiles/knee_sensor_interface.dir/all: CMakeFiles/knee_sensor_interface__rosidl_generator_c.dir/all
 CMakeFiles/knee_sensor_interface.dir/all: CMakeFiles/knee_sensor_interface__rosidl_typesupport_introspection_c.dir/all
-CMakeFiles/knee_sensor_interface.dir/all: knee_sensor_interface__rs/CMakeFiles/knee_sensor_interface__rs.dir/all
 CMakeFiles/knee_sensor_interface.dir/all: CMakeFiles/knee_sensor_interface__rosidl_typesupport_fastrtps_c.dir/all
 CMakeFiles/knee_sensor_interface.dir/all: CMakeFiles/knee_sensor_interface__rosidl_typesupport_c.dir/all
 CMakeFiles/knee_sensor_interface.dir/all: CMakeFiles/knee_sensor_interface__cpp.dir/all
 CMakeFiles/knee_sensor_interface.dir/all: CMakeFiles/knee_sensor_interface__rosidl_typesupport_introspection_cpp.dir/all
 CMakeFiles/knee_sensor_interface.dir/all: CMakeFiles/knee_sensor_interface__rosidl_typesupport_fastrtps_cpp.dir/all
 CMakeFiles/knee_sensor_interface.dir/all: CMakeFiles/knee_sensor_interface__rosidl_typesupport_cpp.dir/all
+CMakeFiles/knee_sensor_interface.dir/all: knee_sensor_interface__rs/CMakeFiles/knee_sensor_interface__rs.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/knee_sensor_interface.dir/build.make CMakeFiles/knee_sensor_interface.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/knee_sensor_interface.dir/build.make CMakeFiles/knee_sensor_interface.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/jdurs/benchTest/build/knee_sensor_interface/CMakeFiles --progress-num= "Built target knee_sensor_interface"
@@ -232,7 +236,7 @@ CMakeFiles/knee_sensor_interface.dir/clean:
 CMakeFiles/knee_sensor_interface__rosidl_generator_type_description.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/knee_sensor_interface__rosidl_generator_type_description.dir/build.make CMakeFiles/knee_sensor_interface__rosidl_generator_type_description.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/knee_sensor_interface__rosidl_generator_type_description.dir/build.make CMakeFiles/knee_sensor_interface__rosidl_generator_type_description.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/jdurs/benchTest/build/knee_sensor_interface/CMakeFiles --progress-num=10 "Built target knee_sensor_interface__rosidl_generator_type_description"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/jdurs/benchTest/build/knee_sensor_interface/CMakeFiles --progress-num=12 "Built target knee_sensor_interface__rosidl_generator_type_description"
 .PHONY : CMakeFiles/knee_sensor_interface__rosidl_generator_type_description.dir/all
 
 # Build rule for subdir invocation for target.
@@ -258,7 +262,7 @@ CMakeFiles/knee_sensor_interface__rosidl_generator_type_description.dir/clean:
 CMakeFiles/knee_sensor_interface__rosidl_generator_c.dir/all: CMakeFiles/knee_sensor_interface__rosidl_generator_type_description.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/knee_sensor_interface__rosidl_generator_c.dir/build.make CMakeFiles/knee_sensor_interface__rosidl_generator_c.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/knee_sensor_interface__rosidl_generator_c.dir/build.make CMakeFiles/knee_sensor_interface__rosidl_generator_c.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/jdurs/benchTest/build/knee_sensor_interface/CMakeFiles --progress-num=3,4,5,6,7 "Built target knee_sensor_interface__rosidl_generator_c"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/jdurs/benchTest/build/knee_sensor_interface/CMakeFiles --progress-num=5,6,7,8,9 "Built target knee_sensor_interface__rosidl_generator_c"
 .PHONY : CMakeFiles/knee_sensor_interface__rosidl_generator_c.dir/all
 
 # Build rule for subdir invocation for target.
@@ -284,7 +288,7 @@ CMakeFiles/knee_sensor_interface__rosidl_generator_c.dir/clean:
 CMakeFiles/knee_sensor_interface__rosidl_typesupport_introspection_c.dir/all: CMakeFiles/knee_sensor_interface__rosidl_generator_c.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/knee_sensor_interface__rosidl_typesupport_introspection_c.dir/build.make CMakeFiles/knee_sensor_interface__rosidl_typesupport_introspection_c.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/knee_sensor_interface__rosidl_typesupport_introspection_c.dir/build.make CMakeFiles/knee_sensor_interface__rosidl_typesupport_introspection_c.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/jdurs/benchTest/build/knee_sensor_interface/CMakeFiles --progress-num=23,24,25 "Built target knee_sensor_interface__rosidl_typesupport_introspection_c"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/jdurs/benchTest/build/knee_sensor_interface/CMakeFiles --progress-num=25,26,27 "Built target knee_sensor_interface__rosidl_typesupport_introspection_c"
 .PHONY : CMakeFiles/knee_sensor_interface__rosidl_typesupport_introspection_c.dir/all
 
 # Build rule for subdir invocation for target.
@@ -310,7 +314,7 @@ CMakeFiles/knee_sensor_interface__rosidl_typesupport_introspection_c.dir/clean:
 CMakeFiles/knee_sensor_interface__rosidl_typesupport_fastrtps_c.dir/all: CMakeFiles/knee_sensor_interface__rosidl_generator_c.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/knee_sensor_interface__rosidl_typesupport_fastrtps_c.dir/build.make CMakeFiles/knee_sensor_interface__rosidl_typesupport_fastrtps_c.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/knee_sensor_interface__rosidl_typesupport_fastrtps_c.dir/build.make CMakeFiles/knee_sensor_interface__rosidl_typesupport_fastrtps_c.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/jdurs/benchTest/build/knee_sensor_interface/CMakeFiles --progress-num=17,18,19 "Built target knee_sensor_interface__rosidl_typesupport_fastrtps_c"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/jdurs/benchTest/build/knee_sensor_interface/CMakeFiles --progress-num=19,20,21 "Built target knee_sensor_interface__rosidl_typesupport_fastrtps_c"
 .PHONY : CMakeFiles/knee_sensor_interface__rosidl_typesupport_fastrtps_c.dir/all
 
 # Build rule for subdir invocation for target.
@@ -336,7 +340,7 @@ CMakeFiles/knee_sensor_interface__rosidl_typesupport_fastrtps_c.dir/clean:
 CMakeFiles/knee_sensor_interface__rosidl_typesupport_c.dir/all: CMakeFiles/knee_sensor_interface__rosidl_generator_c.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/knee_sensor_interface__rosidl_typesupport_c.dir/build.make CMakeFiles/knee_sensor_interface__rosidl_typesupport_c.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/knee_sensor_interface__rosidl_typesupport_c.dir/build.make CMakeFiles/knee_sensor_interface__rosidl_typesupport_c.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/jdurs/benchTest/build/knee_sensor_interface/CMakeFiles --progress-num=11,12,13 "Built target knee_sensor_interface__rosidl_typesupport_c"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/jdurs/benchTest/build/knee_sensor_interface/CMakeFiles --progress-num=13,14,15 "Built target knee_sensor_interface__rosidl_typesupport_c"
 .PHONY : CMakeFiles/knee_sensor_interface__rosidl_typesupport_c.dir/all
 
 # Build rule for subdir invocation for target.
@@ -362,7 +366,7 @@ CMakeFiles/knee_sensor_interface__rosidl_typesupport_c.dir/clean:
 CMakeFiles/knee_sensor_interface__cpp.dir/all: CMakeFiles/knee_sensor_interface__rosidl_generator_type_description.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/knee_sensor_interface__cpp.dir/build.make CMakeFiles/knee_sensor_interface__cpp.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/knee_sensor_interface__cpp.dir/build.make CMakeFiles/knee_sensor_interface__cpp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/jdurs/benchTest/build/knee_sensor_interface/CMakeFiles --progress-num=1 "Built target knee_sensor_interface__cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/jdurs/benchTest/build/knee_sensor_interface/CMakeFiles --progress-num=3 "Built target knee_sensor_interface__cpp"
 .PHONY : CMakeFiles/knee_sensor_interface__cpp.dir/all
 
 # Build rule for subdir invocation for target.
@@ -389,7 +393,7 @@ CMakeFiles/knee_sensor_interface__rosidl_typesupport_introspection_cpp.dir/all: 
 CMakeFiles/knee_sensor_interface__rosidl_typesupport_introspection_cpp.dir/all: CMakeFiles/knee_sensor_interface__cpp.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/knee_sensor_interface__rosidl_typesupport_introspection_cpp.dir/build.make CMakeFiles/knee_sensor_interface__rosidl_typesupport_introspection_cpp.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/knee_sensor_interface__rosidl_typesupport_introspection_cpp.dir/build.make CMakeFiles/knee_sensor_interface__rosidl_typesupport_introspection_cpp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/jdurs/benchTest/build/knee_sensor_interface/CMakeFiles --progress-num=26,27,28 "Built target knee_sensor_interface__rosidl_typesupport_introspection_cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/jdurs/benchTest/build/knee_sensor_interface/CMakeFiles --progress-num=28,29,30 "Built target knee_sensor_interface__rosidl_typesupport_introspection_cpp"
 .PHONY : CMakeFiles/knee_sensor_interface__rosidl_typesupport_introspection_cpp.dir/all
 
 # Build rule for subdir invocation for target.
@@ -416,7 +420,7 @@ CMakeFiles/knee_sensor_interface__rosidl_typesupport_fastrtps_cpp.dir/all: CMake
 CMakeFiles/knee_sensor_interface__rosidl_typesupport_fastrtps_cpp.dir/all: CMakeFiles/knee_sensor_interface__cpp.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/knee_sensor_interface__rosidl_typesupport_fastrtps_cpp.dir/build.make CMakeFiles/knee_sensor_interface__rosidl_typesupport_fastrtps_cpp.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/knee_sensor_interface__rosidl_typesupport_fastrtps_cpp.dir/build.make CMakeFiles/knee_sensor_interface__rosidl_typesupport_fastrtps_cpp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/jdurs/benchTest/build/knee_sensor_interface/CMakeFiles --progress-num=20,21,22 "Built target knee_sensor_interface__rosidl_typesupport_fastrtps_cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/jdurs/benchTest/build/knee_sensor_interface/CMakeFiles --progress-num=22,23,24 "Built target knee_sensor_interface__rosidl_typesupport_fastrtps_cpp"
 .PHONY : CMakeFiles/knee_sensor_interface__rosidl_typesupport_fastrtps_cpp.dir/all
 
 # Build rule for subdir invocation for target.
@@ -443,7 +447,7 @@ CMakeFiles/knee_sensor_interface__rosidl_typesupport_cpp.dir/all: CMakeFiles/kne
 CMakeFiles/knee_sensor_interface__rosidl_typesupport_cpp.dir/all: CMakeFiles/knee_sensor_interface__cpp.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/knee_sensor_interface__rosidl_typesupport_cpp.dir/build.make CMakeFiles/knee_sensor_interface__rosidl_typesupport_cpp.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/knee_sensor_interface__rosidl_typesupport_cpp.dir/build.make CMakeFiles/knee_sensor_interface__rosidl_typesupport_cpp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/jdurs/benchTest/build/knee_sensor_interface/CMakeFiles --progress-num=14,15,16 "Built target knee_sensor_interface__rosidl_typesupport_cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/jdurs/benchTest/build/knee_sensor_interface/CMakeFiles --progress-num=16,17,18 "Built target knee_sensor_interface__rosidl_typesupport_cpp"
 .PHONY : CMakeFiles/knee_sensor_interface__rosidl_typesupport_cpp.dir/all
 
 # Build rule for subdir invocation for target.
@@ -523,7 +527,7 @@ CMakeFiles/knee_sensor_interface__rosidl_generator_py.dir/all: CMakeFiles/knee_s
 CMakeFiles/knee_sensor_interface__rosidl_generator_py.dir/all: knee_sensor_interface__py/CMakeFiles/knee_sensor_interface__py.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/knee_sensor_interface__rosidl_generator_py.dir/build.make CMakeFiles/knee_sensor_interface__rosidl_generator_py.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/knee_sensor_interface__rosidl_generator_py.dir/build.make CMakeFiles/knee_sensor_interface__rosidl_generator_py.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/jdurs/benchTest/build/knee_sensor_interface/CMakeFiles --progress-num=8,9 "Built target knee_sensor_interface__rosidl_generator_py"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/jdurs/benchTest/build/knee_sensor_interface/CMakeFiles --progress-num=10,11 "Built target knee_sensor_interface__rosidl_generator_py"
 .PHONY : CMakeFiles/knee_sensor_interface__rosidl_generator_py.dir/all
 
 # Build rule for subdir invocation for target.
@@ -549,11 +553,11 @@ CMakeFiles/knee_sensor_interface__rosidl_generator_py.dir/clean:
 CMakeFiles/knee_sensor_interface_s__rosidl_typesupport_introspection_c.dir/all: CMakeFiles/knee_sensor_interface__rosidl_generator_c.dir/all
 CMakeFiles/knee_sensor_interface_s__rosidl_typesupport_introspection_c.dir/all: CMakeFiles/knee_sensor_interface__rosidl_typesupport_introspection_c.dir/all
 CMakeFiles/knee_sensor_interface_s__rosidl_typesupport_introspection_c.dir/all: CMakeFiles/knee_sensor_interface__rosidl_typesupport_c.dir/all
-CMakeFiles/knee_sensor_interface_s__rosidl_typesupport_introspection_c.dir/all: knee_sensor_interface__py/CMakeFiles/knee_sensor_interface__py.dir/all
 CMakeFiles/knee_sensor_interface_s__rosidl_typesupport_introspection_c.dir/all: CMakeFiles/knee_sensor_interface__rosidl_generator_py.dir/all
+CMakeFiles/knee_sensor_interface_s__rosidl_typesupport_introspection_c.dir/all: knee_sensor_interface__py/CMakeFiles/knee_sensor_interface__py.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/knee_sensor_interface_s__rosidl_typesupport_introspection_c.dir/build.make CMakeFiles/knee_sensor_interface_s__rosidl_typesupport_introspection_c.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/knee_sensor_interface_s__rosidl_typesupport_introspection_c.dir/build.make CMakeFiles/knee_sensor_interface_s__rosidl_typesupport_introspection_c.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/jdurs/benchTest/build/knee_sensor_interface/CMakeFiles --progress-num=34,35 "Built target knee_sensor_interface_s__rosidl_typesupport_introspection_c"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/jdurs/benchTest/build/knee_sensor_interface/CMakeFiles --progress-num=38,39 "Built target knee_sensor_interface_s__rosidl_typesupport_introspection_c"
 .PHONY : CMakeFiles/knee_sensor_interface_s__rosidl_typesupport_introspection_c.dir/all
 
 # Build rule for subdir invocation for target.
@@ -579,11 +583,11 @@ CMakeFiles/knee_sensor_interface_s__rosidl_typesupport_introspection_c.dir/clean
 CMakeFiles/knee_sensor_interface_s__rosidl_typesupport_fastrtps_c.dir/all: CMakeFiles/knee_sensor_interface__rosidl_generator_c.dir/all
 CMakeFiles/knee_sensor_interface_s__rosidl_typesupport_fastrtps_c.dir/all: CMakeFiles/knee_sensor_interface__rosidl_typesupport_fastrtps_c.dir/all
 CMakeFiles/knee_sensor_interface_s__rosidl_typesupport_fastrtps_c.dir/all: CMakeFiles/knee_sensor_interface__rosidl_typesupport_c.dir/all
-CMakeFiles/knee_sensor_interface_s__rosidl_typesupport_fastrtps_c.dir/all: knee_sensor_interface__py/CMakeFiles/knee_sensor_interface__py.dir/all
 CMakeFiles/knee_sensor_interface_s__rosidl_typesupport_fastrtps_c.dir/all: CMakeFiles/knee_sensor_interface__rosidl_generator_py.dir/all
+CMakeFiles/knee_sensor_interface_s__rosidl_typesupport_fastrtps_c.dir/all: knee_sensor_interface__py/CMakeFiles/knee_sensor_interface__py.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/knee_sensor_interface_s__rosidl_typesupport_fastrtps_c.dir/build.make CMakeFiles/knee_sensor_interface_s__rosidl_typesupport_fastrtps_c.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/knee_sensor_interface_s__rosidl_typesupport_fastrtps_c.dir/build.make CMakeFiles/knee_sensor_interface_s__rosidl_typesupport_fastrtps_c.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/jdurs/benchTest/build/knee_sensor_interface/CMakeFiles --progress-num=32,33 "Built target knee_sensor_interface_s__rosidl_typesupport_fastrtps_c"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/jdurs/benchTest/build/knee_sensor_interface/CMakeFiles --progress-num=36,37 "Built target knee_sensor_interface_s__rosidl_typesupport_fastrtps_c"
 .PHONY : CMakeFiles/knee_sensor_interface_s__rosidl_typesupport_fastrtps_c.dir/all
 
 # Build rule for subdir invocation for target.
@@ -608,11 +612,11 @@ CMakeFiles/knee_sensor_interface_s__rosidl_typesupport_fastrtps_c.dir/clean:
 # All Build rule for target.
 CMakeFiles/knee_sensor_interface_s__rosidl_typesupport_c.dir/all: CMakeFiles/knee_sensor_interface__rosidl_generator_c.dir/all
 CMakeFiles/knee_sensor_interface_s__rosidl_typesupport_c.dir/all: CMakeFiles/knee_sensor_interface__rosidl_typesupport_c.dir/all
-CMakeFiles/knee_sensor_interface_s__rosidl_typesupport_c.dir/all: knee_sensor_interface__py/CMakeFiles/knee_sensor_interface__py.dir/all
 CMakeFiles/knee_sensor_interface_s__rosidl_typesupport_c.dir/all: CMakeFiles/knee_sensor_interface__rosidl_generator_py.dir/all
+CMakeFiles/knee_sensor_interface_s__rosidl_typesupport_c.dir/all: knee_sensor_interface__py/CMakeFiles/knee_sensor_interface__py.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/knee_sensor_interface_s__rosidl_typesupport_c.dir/build.make CMakeFiles/knee_sensor_interface_s__rosidl_typesupport_c.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/knee_sensor_interface_s__rosidl_typesupport_c.dir/build.make CMakeFiles/knee_sensor_interface_s__rosidl_typesupport_c.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/jdurs/benchTest/build/knee_sensor_interface/CMakeFiles --progress-num=30,31 "Built target knee_sensor_interface_s__rosidl_typesupport_c"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/jdurs/benchTest/build/knee_sensor_interface/CMakeFiles --progress-num=34,35 "Built target knee_sensor_interface_s__rosidl_typesupport_c"
 .PHONY : CMakeFiles/knee_sensor_interface_s__rosidl_typesupport_c.dir/all
 
 # Build rule for subdir invocation for target.
@@ -632,13 +636,69 @@ CMakeFiles/knee_sensor_interface_s__rosidl_typesupport_c.dir/clean:
 .PHONY : CMakeFiles/knee_sensor_interface_s__rosidl_typesupport_c.dir/clean
 
 #=============================================================================
+# Target rules for target CMakeFiles/knee_sensor_interface_node.dir
+
+# All Build rule for target.
+CMakeFiles/knee_sensor_interface_node.dir/all: CMakeFiles/knee_sensor_interface__rosidl_generator_c.dir/all
+CMakeFiles/knee_sensor_interface_node.dir/all: CMakeFiles/knee_sensor_interface__cpp.dir/all
+CMakeFiles/knee_sensor_interface_node.dir/all: CMakeFiles/knee_sensor_interface__rosidl_typesupport_cpp.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/knee_sensor_interface_node.dir/build.make CMakeFiles/knee_sensor_interface_node.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/knee_sensor_interface_node.dir/build.make CMakeFiles/knee_sensor_interface_node.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/jdurs/benchTest/build/knee_sensor_interface/CMakeFiles --progress-num=32,33 "Built target knee_sensor_interface_node"
+.PHONY : CMakeFiles/knee_sensor_interface_node.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/knee_sensor_interface_node.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jdurs/benchTest/build/knee_sensor_interface/CMakeFiles 12
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/knee_sensor_interface_node.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jdurs/benchTest/build/knee_sensor_interface/CMakeFiles 0
+.PHONY : CMakeFiles/knee_sensor_interface_node.dir/rule
+
+# Convenience name for target.
+knee_sensor_interface_node: CMakeFiles/knee_sensor_interface_node.dir/rule
+.PHONY : knee_sensor_interface_node
+
+# clean rule for target.
+CMakeFiles/knee_sensor_interface_node.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/knee_sensor_interface_node.dir/build.make CMakeFiles/knee_sensor_interface_node.dir/clean
+.PHONY : CMakeFiles/knee_sensor_interface_node.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/calculate_dead_zone.dir
+
+# All Build rule for target.
+CMakeFiles/calculate_dead_zone.dir/all: CMakeFiles/knee_sensor_interface__rosidl_generator_c.dir/all
+CMakeFiles/calculate_dead_zone.dir/all: CMakeFiles/knee_sensor_interface__cpp.dir/all
+CMakeFiles/calculate_dead_zone.dir/all: CMakeFiles/knee_sensor_interface__rosidl_typesupport_cpp.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/calculate_dead_zone.dir/build.make CMakeFiles/calculate_dead_zone.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/calculate_dead_zone.dir/build.make CMakeFiles/calculate_dead_zone.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/jdurs/benchTest/build/knee_sensor_interface/CMakeFiles --progress-num=1,2 "Built target calculate_dead_zone"
+.PHONY : CMakeFiles/calculate_dead_zone.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/calculate_dead_zone.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jdurs/benchTest/build/knee_sensor_interface/CMakeFiles 12
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/calculate_dead_zone.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jdurs/benchTest/build/knee_sensor_interface/CMakeFiles 0
+.PHONY : CMakeFiles/calculate_dead_zone.dir/rule
+
+# Convenience name for target.
+calculate_dead_zone: CMakeFiles/calculate_dead_zone.dir/rule
+.PHONY : calculate_dead_zone
+
+# clean rule for target.
+CMakeFiles/calculate_dead_zone.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/calculate_dead_zone.dir/build.make CMakeFiles/calculate_dead_zone.dir/clean
+.PHONY : CMakeFiles/calculate_dead_zone.dir/clean
+
+#=============================================================================
 # Target rules for target /home/jdurs/benchTest/build/knee_sensor_interface/knee_sensor_interface__py/CMakeFiles/knee_sensor_interface__py.dir
 
 # All Build rule for target.
 knee_sensor_interface__py/CMakeFiles/knee_sensor_interface__py.dir/all: CMakeFiles/knee_sensor_interface.dir/all
 	$(MAKE) $(MAKESILENT) -f /home/jdurs/benchTest/build/knee_sensor_interface/knee_sensor_interface__py/CMakeFiles/knee_sensor_interface__py.dir/build.make /home/jdurs/benchTest/build/knee_sensor_interface/knee_sensor_interface__py/CMakeFiles/knee_sensor_interface__py.dir/depend
 	$(MAKE) $(MAKESILENT) -f /home/jdurs/benchTest/build/knee_sensor_interface/knee_sensor_interface__py/CMakeFiles/knee_sensor_interface__py.dir/build.make /home/jdurs/benchTest/build/knee_sensor_interface/knee_sensor_interface__py/CMakeFiles/knee_sensor_interface__py.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/jdurs/benchTest/build/knee_sensor_interface/CMakeFiles --progress-num=2 "Built target knee_sensor_interface__py"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/jdurs/benchTest/build/knee_sensor_interface/CMakeFiles --progress-num=4 "Built target knee_sensor_interface__py"
 .PHONY : knee_sensor_interface__py/CMakeFiles/knee_sensor_interface__py.dir/all
 
 # Build rule for subdir invocation for target.
@@ -664,7 +724,7 @@ knee_sensor_interface__py/CMakeFiles/knee_sensor_interface__py.dir/clean:
 knee_sensor_interface__rs/CMakeFiles/knee_sensor_interface__rs.dir/all:
 	$(MAKE) $(MAKESILENT) -f /home/jdurs/benchTest/build/knee_sensor_interface/knee_sensor_interface__rs/CMakeFiles/knee_sensor_interface__rs.dir/build.make /home/jdurs/benchTest/build/knee_sensor_interface/knee_sensor_interface__rs/CMakeFiles/knee_sensor_interface__rs.dir/depend
 	$(MAKE) $(MAKESILENT) -f /home/jdurs/benchTest/build/knee_sensor_interface/knee_sensor_interface__rs/CMakeFiles/knee_sensor_interface__rs.dir/build.make /home/jdurs/benchTest/build/knee_sensor_interface/knee_sensor_interface__rs/CMakeFiles/knee_sensor_interface__rs.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/jdurs/benchTest/build/knee_sensor_interface/CMakeFiles --progress-num=29 "Built target knee_sensor_interface__rs"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/jdurs/benchTest/build/knee_sensor_interface/CMakeFiles --progress-num=31 "Built target knee_sensor_interface__rs"
 .PHONY : knee_sensor_interface__rs/CMakeFiles/knee_sensor_interface__rs.dir/all
 
 # Build rule for subdir invocation for target.

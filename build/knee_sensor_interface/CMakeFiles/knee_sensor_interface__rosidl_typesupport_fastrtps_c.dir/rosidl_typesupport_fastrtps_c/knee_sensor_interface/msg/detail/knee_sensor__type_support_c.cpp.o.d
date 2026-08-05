@@ -231,6 +231,5 @@ CMakeFiles/knee_sensor_interface__rosidl_typesupport_fastrtps_c.dir/rosidl_types
  /home/jdurs/ros2_jazzy/src/ros2/rosidl/rosidl_runtime_c/include/rosidl_runtime_c/action_type_support_struct.h \
  /home/jdurs/ros2_jazzy/src/ros2/rosidl/rosidl_runtime_c/include/rosidl_runtime_c/service_type_support_struct.h \
  /home/jdurs/benchTest/build/knee_sensor_interface/rosidl_generator_c/knee_sensor_interface/msg/rosidl_generator_c__visibility_control.h \
- /home/jdurs/ros2_jazzy/src/ros2/rosidl/rosidl_runtime_c/include/rosidl_runtime_c/primitives_sequence_functions.h \
  /home/jdurs/ros2_jazzy/install/std_msgs/include/std_msgs/std_msgs/msg/detail/header__functions.h \
  /home/jdurs/ros2_jazzy/install/std_msgs/include/std_msgs/std_msgs/msg/rosidl_generator_c__visibility_control.h

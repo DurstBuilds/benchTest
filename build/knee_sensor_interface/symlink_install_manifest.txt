@@ -47,6 +47,8 @@
 /home/jdurs/benchTest/install/knee_sensor_interface/share/knee_sensor_interface/rust/src/msg/rmw.rs
 /home/jdurs/benchTest/install/knee_sensor_interface/share/knee_sensor_interface/msg/KneeSensor.idl
 /home/jdurs/benchTest/install/knee_sensor_interface/share/knee_sensor_interface/msg/KneeSensor.msg
+/home/jdurs/benchTest/install/knee_sensor_interface/lib/knee_sensor_interface/knee_sensor_interface_node
+/home/jdurs/benchTest/install/knee_sensor_interface/lib/knee_sensor_interface/calculate_dead_zone
 /home/jdurs/benchTest/install/knee_sensor_interface/share/ament_index/resource_index/package_run_dependencies/knee_sensor_interface
 /home/jdurs/benchTest/install/knee_sensor_interface/share/ament_index/resource_index/parent_prefix_path/knee_sensor_interface
 /home/jdurs/benchTest/install/knee_sensor_interface/share/knee_sensor_interface/environment/ament_prefix_path.sh

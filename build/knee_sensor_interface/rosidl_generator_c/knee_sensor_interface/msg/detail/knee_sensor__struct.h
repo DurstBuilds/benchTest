@@ -22,22 +22,16 @@ extern "C"
 // Include directives for member types
 // Member 'header'
 #include "std_msgs/msg/detail/header__struct.h"
-// Member 'channels'
-#include "rosidl_runtime_c/primitives_sequence.h"
 
 /// Struct defined in msg/KneeSensor in the package knee_sensor_interface.
 /**
-  * Knee sensor reading
+  * Latching hall state (PIC HS-3511-02-0300)
  */
 typedef struct knee_sensor_interface__msg__KneeSensor
 {
   std_msgs__msg__Header header;
-  /// Joint angle in radians
-  double angle;
-  /// Angular velocity in rad/s
-  double angular_velocity;
-  /// Optional force/torque or strain channels
-  rosidl_runtime_c__double__Sequence channels;
+  /// true when latch is ON (open-drain OUT asserted, after active_low inversion)
+  bool active;
 } knee_sensor_interface__msg__KneeSensor;
 
 // Struct for a sequence of knee_sensor_interface__msg__KneeSensor.

@@ -14,8 +14,6 @@
 // Include directives for member types
 // Member `header`
 #include "std_msgs/msg/detail/header__functions.h"
-// Member `channels`
-#include "rosidl_runtime_c/primitives_sequence_functions.h"
 
 bool
 knee_sensor_interface__msg__KneeSensor__init(knee_sensor_interface__msg__KneeSensor * msg)
@@ -28,13 +26,7 @@ knee_sensor_interface__msg__KneeSensor__init(knee_sensor_interface__msg__KneeSen
     knee_sensor_interface__msg__KneeSensor__fini(msg);
     return false;
   }
-  // angle
-  // angular_velocity
-  // channels
-  if (!rosidl_runtime_c__double__Sequence__init(&msg->channels, 0)) {
-    knee_sensor_interface__msg__KneeSensor__fini(msg);
-    return false;
-  }
+  // active
   return true;
 }
 
@@ -46,10 +38,7 @@ knee_sensor_interface__msg__KneeSensor__fini(knee_sensor_interface__msg__KneeSen
   }
   // header
   std_msgs__msg__Header__fini(&msg->header);
-  // angle
-  // angular_velocity
-  // channels
-  rosidl_runtime_c__double__Sequence__fini(&msg->channels);
+  // active
 }
 
 bool
@@ -64,18 +53,8 @@ knee_sensor_interface__msg__KneeSensor__are_equal(const knee_sensor_interface__m
   {
     return false;
   }
-  // angle
-  if (lhs->angle != rhs->angle) {
-    return false;
-  }
-  // angular_velocity
-  if (lhs->angular_velocity != rhs->angular_velocity) {
-    return false;
-  }
-  // channels
-  if (!rosidl_runtime_c__double__Sequence__are_equal(
-      &(lhs->channels), &(rhs->channels)))
-  {
+  // active
+  if (lhs->active != rhs->active) {
     return false;
   }
   return true;
@@ -95,16 +74,8 @@ knee_sensor_interface__msg__KneeSensor__copy(
   {
     return false;
   }
-  // angle
-  output->angle = input->angle;
-  // angular_velocity
-  output->angular_velocity = input->angular_velocity;
-  // channels
-  if (!rosidl_runtime_c__double__Sequence__copy(
-      &(input->channels), &(output->channels)))
-  {
-    return false;
-  }
+  // active
+  output->active = input->active;
   return true;
 }
 

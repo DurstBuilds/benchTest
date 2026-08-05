@@ -24,48 +24,16 @@ namespace msg
 namespace builder
 {
 
-class Init_KneeSensor_channels
+class Init_KneeSensor_active
 {
 public:
-  explicit Init_KneeSensor_channels(::knee_sensor_interface::msg::KneeSensor & msg)
+  explicit Init_KneeSensor_active(::knee_sensor_interface::msg::KneeSensor & msg)
   : msg_(msg)
   {}
-  ::knee_sensor_interface::msg::KneeSensor channels(::knee_sensor_interface::msg::KneeSensor::_channels_type arg)
+  ::knee_sensor_interface::msg::KneeSensor active(::knee_sensor_interface::msg::KneeSensor::_active_type arg)
   {
-    msg_.channels = std::move(arg);
+    msg_.active = std::move(arg);
     return std::move(msg_);
-  }
-
-private:
-  ::knee_sensor_interface::msg::KneeSensor msg_;
-};
-
-class Init_KneeSensor_angular_velocity
-{
-public:
-  explicit Init_KneeSensor_angular_velocity(::knee_sensor_interface::msg::KneeSensor & msg)
-  : msg_(msg)
-  {}
-  Init_KneeSensor_channels angular_velocity(::knee_sensor_interface::msg::KneeSensor::_angular_velocity_type arg)
-  {
-    msg_.angular_velocity = std::move(arg);
-    return Init_KneeSensor_channels(msg_);
-  }
-
-private:
-  ::knee_sensor_interface::msg::KneeSensor msg_;
-};
-
-class Init_KneeSensor_angle
-{
-public:
-  explicit Init_KneeSensor_angle(::knee_sensor_interface::msg::KneeSensor & msg)
-  : msg_(msg)
-  {}
-  Init_KneeSensor_angular_velocity angle(::knee_sensor_interface::msg::KneeSensor::_angle_type arg)
-  {
-    msg_.angle = std::move(arg);
-    return Init_KneeSensor_angular_velocity(msg_);
   }
 
 private:
@@ -78,10 +46,10 @@ public:
   Init_KneeSensor_header()
   : msg_(::rosidl_runtime_cpp::MessageInitialization::SKIP)
   {}
-  Init_KneeSensor_angle header(::knee_sensor_interface::msg::KneeSensor::_header_type arg)
+  Init_KneeSensor_active header(::knee_sensor_interface::msg::KneeSensor::_header_type arg)
   {
     msg_.header = std::move(arg);
-    return Init_KneeSensor_angle(msg_);
+    return Init_KneeSensor_active(msg_);
   }
 
 private:

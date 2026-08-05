@@ -18,7 +18,7 @@ extern "C" {
 // Corresponds to knee_sensor_interface__msg__KneeSensor
 #[cfg_attr(feature = "serde", derive(Deserialize, Serialize))]
 
-/// Knee sensor reading
+/// Latching hall state (PIC HS-3511-02-0300)
 
 #[repr(C)]
 #[derive(Clone, Debug, PartialEq, PartialOrd)]
@@ -28,14 +28,8 @@ pub struct KneeSensor {
     #[allow(missing_docs)]
     pub header: std_msgs::msg::rmw::Header,
 
-    /// Joint angle in radians
-    pub angle: f64,
-
-    /// Angular velocity in rad/s
-    pub angular_velocity: f64,
-
-    /// Optional force/torque or strain channels
-    pub channels: rosidl_runtime_rs::Sequence<f64>,
+    /// true when latch is ON (open-drain OUT asserted, after active_low inversion)
+    pub active: bool,
 
 }
 

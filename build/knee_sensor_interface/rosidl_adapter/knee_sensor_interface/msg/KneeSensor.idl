@@ -7,21 +7,13 @@
 module knee_sensor_interface {
   module msg {
     @verbatim (language="comment", text=
-      "Knee sensor reading")
+      "Latching hall state (PIC HS-3511-02-0300)")
     struct KneeSensor {
       std_msgs::msg::Header header;
 
       @verbatim (language="comment", text=
-        "Joint angle in radians")
-      double angle;
-
-      @verbatim (language="comment", text=
-        "Angular velocity in rad/s")
-      double angular_velocity;
-
-      @verbatim (language="comment", text=
-        "Optional force/torque or strain channels")
-      sequence<double> channels;
+        "true when latch is ON (open-drain OUT asserted, after active_low inversion)")
+      boolean active;
     };
   };
 };

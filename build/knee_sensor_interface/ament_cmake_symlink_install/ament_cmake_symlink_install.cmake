@@ -378,6 +378,9 @@ ament_cmake_symlink_install_files("/home/jdurs/benchTest/src/knee_sensor_interfa
 # install(FILES "/home/jdurs/benchTest/src/knee_sensor_interface/msg/KneeSensor.msg" "DESTINATION" "share/knee_sensor_interface/msg")
 ament_cmake_symlink_install_files("/home/jdurs/benchTest/src/knee_sensor_interface" FILES "/home/jdurs/benchTest/src/knee_sensor_interface/msg/KneeSensor.msg" "DESTINATION" "share/knee_sensor_interface/msg")
 
+# install("TARGETS" "knee_sensor_interface_node" "calculate_dead_zone" "DESTINATION" "lib/knee_sensor_interface")
+include("/home/jdurs/benchTest/build/knee_sensor_interface/ament_cmake_symlink_install_targets_3_${CMAKE_INSTALL_CONFIG_NAME}.cmake")
+
 # install(FILES "/home/jdurs/benchTest/build/knee_sensor_interface/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/knee_sensor_interface" "DESTINATION" "share/ament_index/resource_index/package_run_dependencies")
 ament_cmake_symlink_install_files("/home/jdurs/benchTest/src/knee_sensor_interface" FILES "/home/jdurs/benchTest/build/knee_sensor_interface/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/knee_sensor_interface" "DESTINATION" "share/ament_index/resource_index/package_run_dependencies")
 

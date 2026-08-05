@@ -16,6 +16,8 @@
 /home/jdurs/benchTest/build/knee_sensor_interface/CMakeFiles/knee_sensor_interface_s__rosidl_typesupport_introspection_c.dir
 /home/jdurs/benchTest/build/knee_sensor_interface/CMakeFiles/knee_sensor_interface_s__rosidl_typesupport_fastrtps_c.dir
 /home/jdurs/benchTest/build/knee_sensor_interface/CMakeFiles/knee_sensor_interface_s__rosidl_typesupport_c.dir
+/home/jdurs/benchTest/build/knee_sensor_interface/CMakeFiles/knee_sensor_interface_node.dir
+/home/jdurs/benchTest/build/knee_sensor_interface/CMakeFiles/calculate_dead_zone.dir
 /home/jdurs/benchTest/build/knee_sensor_interface/CMakeFiles/test.dir
 /home/jdurs/benchTest/build/knee_sensor_interface/CMakeFiles/edit_cache.dir
 /home/jdurs/benchTest/build/knee_sensor_interface/CMakeFiles/rebuild_cache.dir

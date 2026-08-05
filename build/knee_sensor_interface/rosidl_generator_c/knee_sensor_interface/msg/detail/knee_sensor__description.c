@@ -11,10 +11,10 @@ knee_sensor_interface__msg__KneeSensor__get_type_hash(
 {
   (void)type_support;
   static rosidl_type_hash_t hash = {1, {
-      0x48, 0xcb, 0xd5, 0x2e, 0xf3, 0x7e, 0xa2, 0x3b,
-      0xba, 0x8d, 0xd9, 0xb5, 0xce, 0xda, 0x73, 0x46,
-      0x6c, 0x15, 0x62, 0x60, 0x9d, 0xd9, 0x27, 0xb8,
-      0xaf, 0x32, 0x8e, 0x2c, 0x7f, 0x07, 0x60, 0x22,
+      0x41, 0x85, 0xa4, 0x9d, 0x6f, 0x18, 0xa6, 0x28,
+      0x40, 0xce, 0x53, 0xe1, 0x27, 0xb1, 0x67, 0xe8,
+      0x4d, 0x9f, 0xa8, 0xab, 0x6b, 0x37, 0x90, 0xca,
+      0x38, 0x4b, 0x73, 0x21, 0x64, 0xc9, 0xae, 0xe1,
     }};
   return &hash;
 }
@@ -48,9 +48,7 @@ static char std_msgs__msg__Header__TYPE_NAME[] = "std_msgs/msg/Header";
 
 // Define type names, field names, and default values
 static char knee_sensor_interface__msg__KneeSensor__FIELD_NAME__header[] = "header";
-static char knee_sensor_interface__msg__KneeSensor__FIELD_NAME__angle[] = "angle";
-static char knee_sensor_interface__msg__KneeSensor__FIELD_NAME__angular_velocity[] = "angular_velocity";
-static char knee_sensor_interface__msg__KneeSensor__FIELD_NAME__channels[] = "channels";
+static char knee_sensor_interface__msg__KneeSensor__FIELD_NAME__active[] = "active";
 
 static rosidl_runtime_c__type_description__Field knee_sensor_interface__msg__KneeSensor__FIELDS[] = {
   {
@@ -64,29 +62,9 @@ static rosidl_runtime_c__type_description__Field knee_sensor_interface__msg__Kne
     {NULL, 0, 0},
   },
   {
-    {knee_sensor_interface__msg__KneeSensor__FIELD_NAME__angle, 5, 5},
+    {knee_sensor_interface__msg__KneeSensor__FIELD_NAME__active, 6, 6},
     {
-      rosidl_runtime_c__type_description__FieldType__FIELD_TYPE_DOUBLE,
-      0,
-      0,
-      {NULL, 0, 0},
-    },
-    {NULL, 0, 0},
-  },
-  {
-    {knee_sensor_interface__msg__KneeSensor__FIELD_NAME__angular_velocity, 16, 16},
-    {
-      rosidl_runtime_c__type_description__FieldType__FIELD_TYPE_DOUBLE,
-      0,
-      0,
-      {NULL, 0, 0},
-    },
-    {NULL, 0, 0},
-  },
-  {
-    {knee_sensor_interface__msg__KneeSensor__FIELD_NAME__channels, 8, 8},
-    {
-      rosidl_runtime_c__type_description__FieldType__FIELD_TYPE_DOUBLE_UNBOUNDED_SEQUENCE,
+      rosidl_runtime_c__type_description__FieldType__FIELD_TYPE_BOOLEAN,
       0,
       0,
       {NULL, 0, 0},
@@ -115,7 +93,7 @@ knee_sensor_interface__msg__KneeSensor__get_type_description(
   static const rosidl_runtime_c__type_description__TypeDescription description = {
     {
       {knee_sensor_interface__msg__KneeSensor__TYPE_NAME, 36, 36},
-      {knee_sensor_interface__msg__KneeSensor__FIELDS, 4, 4},
+      {knee_sensor_interface__msg__KneeSensor__FIELDS, 2, 2},
     },
     {knee_sensor_interface__msg__KneeSensor__REFERENCED_TYPE_DESCRIPTIONS, 2, 2},
   };
@@ -130,17 +108,11 @@ knee_sensor_interface__msg__KneeSensor__get_type_description(
 }
 
 static char toplevel_type_raw_source[] =
-  "# Knee sensor reading\n"
+  "# Latching hall state (PIC HS-3511-02-0300)\n"
   "std_msgs/Header header\n"
   "\n"
-  "# Joint angle in radians\n"
-  "float64 angle\n"
-  "\n"
-  "# Angular velocity in rad/s\n"
-  "float64 angular_velocity\n"
-  "\n"
-  "# Optional force/torque or strain channels\n"
-  "float64[] channels";
+  "# true when latch is ON (open-drain OUT asserted, after active_low inversion)\n"
+  "bool active";
 
 static char msg_encoding[] = "msg";
 
@@ -154,7 +126,7 @@ knee_sensor_interface__msg__KneeSensor__get_individual_type_description_source(
   static const rosidl_runtime_c__type_description__TypeSource source = {
     {knee_sensor_interface__msg__KneeSensor__TYPE_NAME, 36, 36},
     {msg_encoding, 3, 3},
-    {toplevel_type_raw_source, 202, 202},
+    {toplevel_type_raw_source, 158, 158},
   };
   return &source;
 }

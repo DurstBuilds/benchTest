@@ -47,8 +47,7 @@ struct KneeSensor_
     if (rosidl_runtime_cpp::MessageInitialization::ALL == _init ||
       rosidl_runtime_cpp::MessageInitialization::ZERO == _init)
     {
-      this->angle = 0.0;
-      this->angular_velocity = 0.0;
+      this->active = false;
     }
   }
 
@@ -58,8 +57,7 @@ struct KneeSensor_
     if (rosidl_runtime_cpp::MessageInitialization::ALL == _init ||
       rosidl_runtime_cpp::MessageInitialization::ZERO == _init)
     {
-      this->angle = 0.0;
-      this->angular_velocity = 0.0;
+      this->active = false;
     }
   }
 
@@ -67,15 +65,9 @@ struct KneeSensor_
   using _header_type =
     std_msgs::msg::Header_<ContainerAllocator>;
   _header_type header;
-  using _angle_type =
-    double;
-  _angle_type angle;
-  using _angular_velocity_type =
-    double;
-  _angular_velocity_type angular_velocity;
-  using _channels_type =
-    std::vector<double, typename std::allocator_traits<ContainerAllocator>::template rebind_alloc<double>>;
-  _channels_type channels;
+  using _active_type =
+    bool;
+  _active_type active;
 
   // setters for named parameter idiom
   Type & set__header(
@@ -84,22 +76,10 @@ struct KneeSensor_
     this->header = _arg;
     return *this;
   }
-  Type & set__angle(
-    const double & _arg)
+  Type & set__active(
+    const bool & _arg)
   {
-    this->angle = _arg;
-    return *this;
-  }
-  Type & set__angular_velocity(
-    const double & _arg)
-  {
-    this->angular_velocity = _arg;
-    return *this;
-  }
-  Type & set__channels(
-    const std::vector<double, typename std::allocator_traits<ContainerAllocator>::template rebind_alloc<double>> & _arg)
-  {
-    this->channels = _arg;
+    this->active = _arg;
     return *this;
   }
 
@@ -148,13 +128,7 @@ struct KneeSensor_
     if (this->header != other.header) {
       return false;
     }
-    if (this->angle != other.angle) {
-      return false;
-    }
-    if (this->angular_velocity != other.angular_velocity) {
-      return false;
-    }
-    if (this->channels != other.channels) {
+    if (this->active != other.active) {
       return false;
     }
     return true;

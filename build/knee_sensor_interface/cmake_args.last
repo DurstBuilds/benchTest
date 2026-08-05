@@ -1,1 +1,1 @@
-['-DAMENT_CMAKE_SYMLINK_INSTALL=1']
+['-DCMAKE_LIBRARY_PATH=/home/jdurs/benchTest/.deps/prefix/usr/lib/x86_64-linux-gnu', '-DCMAKE_INCLUDE_PATH=/home/jdurs/benchTest/.deps/prefix/usr/include']

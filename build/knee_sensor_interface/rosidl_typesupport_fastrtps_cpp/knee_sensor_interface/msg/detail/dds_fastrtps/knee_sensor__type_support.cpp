@@ -76,16 +76,8 @@ cdr_serialize(
     ros_message.header,
     cdr);
 
-  // Member: angle
-  cdr << ros_message.angle;
-
-  // Member: angular_velocity
-  cdr << ros_message.angular_velocity;
-
-  // Member: channels
-  {
-    cdr << ros_message.channels;
-  }
+  // Member: active
+  cdr << (ros_message.active ? true : false);
 
   return true;
 }
@@ -100,15 +92,11 @@ cdr_deserialize(
   std_msgs::msg::typesupport_fastrtps_cpp::cdr_deserialize(
     cdr, ros_message.header);
 
-  // Member: angle
-  cdr >> ros_message.angle;
-
-  // Member: angular_velocity
-  cdr >> ros_message.angular_velocity;
-
-  // Member: channels
+  // Member: active
   {
-    cdr >> ros_message.channels;
+    uint8_t tmp;
+    cdr >> tmp;
+    ros_message.active = tmp ? true : false;
   }
 
   return true;
@@ -133,27 +121,10 @@ get_serialized_size(
     std_msgs::msg::typesupport_fastrtps_cpp::get_serialized_size(
     ros_message.header, current_alignment);
 
-  // Member: angle
+  // Member: active
   {
-    size_t item_size = sizeof(ros_message.angle);
+    size_t item_size = sizeof(ros_message.active);
     current_alignment += item_size +
-      eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
-  }
-
-  // Member: angular_velocity
-  {
-    size_t item_size = sizeof(ros_message.angular_velocity);
-    current_alignment += item_size +
-      eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
-  }
-
-  // Member: channels
-  {
-    size_t array_size = ros_message.channels.size();
-    current_alignment += padding +
-      eprosima::fastcdr::Cdr::alignment(current_alignment, padding);
-    size_t item_size = sizeof(ros_message.channels[0]);
-    current_alignment += array_size * item_size +
       eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
   }
 
@@ -196,30 +167,11 @@ max_serialized_size_KneeSensor(
       is_plain &= inner_is_plain;
     }
   }
-  // Member: angle
+  // Member: active
   {
     size_t array_size = 1;
-    last_member_size = array_size * sizeof(uint64_t);
-    current_alignment += array_size * sizeof(uint64_t) +
-      eprosima::fastcdr::Cdr::alignment(current_alignment, sizeof(uint64_t));
-  }
-  // Member: angular_velocity
-  {
-    size_t array_size = 1;
-    last_member_size = array_size * sizeof(uint64_t);
-    current_alignment += array_size * sizeof(uint64_t) +
-      eprosima::fastcdr::Cdr::alignment(current_alignment, sizeof(uint64_t));
-  }
-  // Member: channels
-  {
-    size_t array_size = 0;
-    full_bounded = false;
-    is_plain = false;
-    current_alignment += padding +
-      eprosima::fastcdr::Cdr::alignment(current_alignment, padding);
-    last_member_size = array_size * sizeof(uint64_t);
-    current_alignment += array_size * sizeof(uint64_t) +
-      eprosima::fastcdr::Cdr::alignment(current_alignment, sizeof(uint64_t));
+    last_member_size = array_size * sizeof(uint8_t);
+    current_alignment += array_size * sizeof(uint8_t);
   }
 
   size_t ret_val = current_alignment - initial_alignment;
@@ -230,7 +182,7 @@ max_serialized_size_KneeSensor(
     using DataType = knee_sensor_interface::msg::KneeSensor;
     is_plain =
       (
-      offsetof(DataType, channels) +
+      offsetof(DataType, active) +
       last_member_size
       ) == ret_val;
   }
@@ -249,16 +201,8 @@ cdr_serialize_key(
     ros_message.header,
     cdr);
 
-  // Member: angle
-  cdr << ros_message.angle;
-
-  // Member: angular_velocity
-  cdr << ros_message.angular_velocity;
-
-  // Member: channels
-  {
-    cdr << ros_message.channels;
-  }
+  // Member: active
+  cdr << (ros_message.active ? true : false);
 
   return true;
 }
@@ -281,27 +225,10 @@ get_serialized_size_key(
     std_msgs::msg::typesupport_fastrtps_cpp::get_serialized_size_key(
     ros_message.header, current_alignment);
 
-  // Member: angle
+  // Member: active
   {
-    size_t item_size = sizeof(ros_message.angle);
+    size_t item_size = sizeof(ros_message.active);
     current_alignment += item_size +
-      eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
-  }
-
-  // Member: angular_velocity
-  {
-    size_t item_size = sizeof(ros_message.angular_velocity);
-    current_alignment += item_size +
-      eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
-  }
-
-  // Member: channels
-  {
-    size_t array_size = ros_message.channels.size();
-    current_alignment += padding +
-      eprosima::fastcdr::Cdr::alignment(current_alignment, padding);
-    size_t item_size = sizeof(ros_message.channels[0]);
-    current_alignment += array_size * item_size +
       eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
   }
 
@@ -344,32 +271,11 @@ max_serialized_size_key_KneeSensor(
     }
   }
 
-  // Member: angle
+  // Member: active
   {
     size_t array_size = 1;
-    last_member_size = array_size * sizeof(uint64_t);
-    current_alignment += array_size * sizeof(uint64_t) +
-      eprosima::fastcdr::Cdr::alignment(current_alignment, sizeof(uint64_t));
-  }
-
-  // Member: angular_velocity
-  {
-    size_t array_size = 1;
-    last_member_size = array_size * sizeof(uint64_t);
-    current_alignment += array_size * sizeof(uint64_t) +
-      eprosima::fastcdr::Cdr::alignment(current_alignment, sizeof(uint64_t));
-  }
-
-  // Member: channels
-  {
-    size_t array_size = 0;
-    full_bounded = false;
-    is_plain = false;
-    current_alignment += padding +
-      eprosima::fastcdr::Cdr::alignment(current_alignment, padding);
-    last_member_size = array_size * sizeof(uint64_t);
-    current_alignment += array_size * sizeof(uint64_t) +
-      eprosima::fastcdr::Cdr::alignment(current_alignment, sizeof(uint64_t));
+    last_member_size = array_size * sizeof(uint8_t);
+    current_alignment += array_size * sizeof(uint8_t);
   }
 
   size_t ret_val = current_alignment - initial_alignment;
@@ -380,7 +286,7 @@ max_serialized_size_key_KneeSensor(
     using DataType = knee_sensor_interface::msg::KneeSensor;
     is_plain =
       (
-      offsetof(DataType, channels) +
+      offsetof(DataType, active) +
       last_member_size
       ) == ret_val;
   }

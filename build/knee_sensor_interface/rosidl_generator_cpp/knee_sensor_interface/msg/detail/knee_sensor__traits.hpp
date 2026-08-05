@@ -39,35 +39,10 @@ inline void to_flow_style_yaml(
     out << ", ";
   }
 
-  // member: angle
+  // member: active
   {
-    out << "angle: ";
-    rosidl_generator_traits::value_to_yaml(msg.angle, out);
-    out << ", ";
-  }
-
-  // member: angular_velocity
-  {
-    out << "angular_velocity: ";
-    rosidl_generator_traits::value_to_yaml(msg.angular_velocity, out);
-    out << ", ";
-  }
-
-  // member: channels
-  {
-    if (msg.channels.size() == 0) {
-      out << "channels: []";
-    } else {
-      out << "channels: [";
-      size_t pending_items = msg.channels.size();
-      for (auto item : msg.channels) {
-        rosidl_generator_traits::value_to_yaml(item, out);
-        if (--pending_items > 0) {
-          out << ", ";
-        }
-      }
-      out << "]";
-    }
+    out << "active: ";
+    rosidl_generator_traits::value_to_yaml(msg.active, out);
   }
   out << "}";
 }  // NOLINT(readability/fn_size)
@@ -85,44 +60,14 @@ inline void to_block_style_yaml(
     to_block_style_yaml(msg.header, out, indentation + 2);
   }
 
-  // member: angle
+  // member: active
   {
     if (indentation > 0) {
       out << std::string(indentation, ' ');
     }
-    out << "angle: ";
-    rosidl_generator_traits::value_to_yaml(msg.angle, out);
+    out << "active: ";
+    rosidl_generator_traits::value_to_yaml(msg.active, out);
     out << "\n";
-  }
-
-  // member: angular_velocity
-  {
-    if (indentation > 0) {
-      out << std::string(indentation, ' ');
-    }
-    out << "angular_velocity: ";
-    rosidl_generator_traits::value_to_yaml(msg.angular_velocity, out);
-    out << "\n";
-  }
-
-  // member: channels
-  {
-    if (indentation > 0) {
-      out << std::string(indentation, ' ');
-    }
-    if (msg.channels.size() == 0) {
-      out << "channels: []\n";
-    } else {
-      out << "channels:\n";
-      for (auto item : msg.channels) {
-        if (indentation > 0) {
-          out << std::string(indentation, ' ');
-        }
-        out << "- ";
-        rosidl_generator_traits::value_to_yaml(item, out);
-        out << "\n";
-      }
-    }
   }
 }  // NOLINT(readability/fn_size)
 
@@ -172,11 +117,11 @@ inline const char * name<knee_sensor_interface::msg::KneeSensor>()
 
 template<>
 struct has_fixed_size<knee_sensor_interface::msg::KneeSensor>
-  : std::integral_constant<bool, false> {};
+  : std::integral_constant<bool, has_fixed_size<std_msgs::msg::Header>::value> {};
 
 template<>
 struct has_bounded_size<knee_sensor_interface::msg::KneeSensor>
-  : std::integral_constant<bool, false> {};
+  : std::integral_constant<bool, has_bounded_size<std_msgs::msg::Header>::value> {};
 
 template<>
 struct is_message<knee_sensor_interface::msg::KneeSensor>

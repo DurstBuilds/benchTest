@@ -14,29 +14,9 @@
           "default_value": ""
         },
         {
-          "name": "angle",
+          "name": "active",
           "type": {
-            "type_id": 11,
-            "capacity": 0,
-            "string_capacity": 0,
-            "nested_type_name": ""
-          },
-          "default_value": ""
-        },
-        {
-          "name": "angular_velocity",
-          "type": {
-            "type_id": 11,
-            "capacity": 0,
-            "string_capacity": 0,
-            "nested_type_name": ""
-          },
-          "default_value": ""
-        },
-        {
-          "name": "channels",
-          "type": {
-            "type_id": 155,
+            "type_id": 15,
             "capacity": 0,
             "string_capacity": 0,
             "nested_type_name": ""
@@ -101,7 +81,7 @@
   "type_hashes": [
     {
       "type_name": "knee_sensor_interface/msg/KneeSensor",
-      "hash_string": "RIHS01_48cbd52ef37ea23bba8dd9b5ceda73466c1562609dd927b8af328e2c7f076022"
+      "hash_string": "RIHS01_4185a49d6f18a62840ce53e127b167e84d9fa8ab6b3790ca384b732164c9aee1"
     },
     {
       "type_name": "builtin_interfaces/msg/Time",

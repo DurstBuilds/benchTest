@@ -12,12 +12,7 @@ ros_python_check_fields = getenv('ROS_PYTHON_CHECK_FIELDS', default='')
 
 # Import statements for member types
 
-# Member 'channels'
-import array  # noqa: E402, I100
-
 import builtins  # noqa: E402, I100
-
-import math  # noqa: E402, I100
 
 import rosidl_parser.definition  # noqa: E402, I100
 
@@ -72,26 +67,20 @@ class KneeSensor(metaclass=Metaclass_KneeSensor):
 
     __slots__ = [
         '_header',
-        '_angle',
-        '_angular_velocity',
-        '_channels',
+        '_active',
         '_check_fields',
     ]
 
     _fields_and_field_types = {
         'header': 'std_msgs/Header',
-        'angle': 'double',
-        'angular_velocity': 'double',
-        'channels': 'sequence<double>',
+        'active': 'boolean',
     }
 
     # This attribute is used to store an rosidl_parser.definition variable
     # related to the data type of each of the components the message.
     SLOT_TYPES = (
         rosidl_parser.definition.NamespacedType(['std_msgs', 'msg'], 'Header'),  # noqa: E501
-        rosidl_parser.definition.BasicType('double'),  # noqa: E501
-        rosidl_parser.definition.BasicType('double'),  # noqa: E501
-        rosidl_parser.definition.UnboundedSequence(rosidl_parser.definition.BasicType('double')),  # noqa: E501
+        rosidl_parser.definition.BasicType('boolean'),  # noqa: E501
     )
 
     def __init__(self, **kwargs):
@@ -105,9 +94,7 @@ class KneeSensor(metaclass=Metaclass_KneeSensor):
                 ', '.join(sorted(k for k in kwargs.keys() if '_' + k not in self.__slots__))
         from std_msgs.msg import Header
         self.header = kwargs.get('header', Header())
-        self.angle = kwargs.get('angle', float())
-        self.angular_velocity = kwargs.get('angular_velocity', float())
-        self.channels = array.array('d', kwargs.get('channels', []))
+        self.active = kwargs.get('active', bool())
 
     def __repr__(self):
         typename = self.__class__.__module__.split('.')
@@ -141,11 +128,7 @@ class KneeSensor(metaclass=Metaclass_KneeSensor):
             return False
         if self.header != other.header:
             return False
-        if self.angle != other.angle:
-            return False
-        if self.angular_velocity != other.angular_velocity:
-            return False
-        if self.channels != other.channels:
+        if self.active != other.active:
             return False
         return True
 
@@ -169,59 +152,14 @@ class KneeSensor(metaclass=Metaclass_KneeSensor):
         self._header = value
 
     @builtins.property
-    def angle(self):
-        """Message field 'angle'."""
-        return self._angle
+    def active(self):
+        """Message field 'active'."""
+        return self._active
 
-    @angle.setter
-    def angle(self, value):
+    @active.setter
+    def active(self, value):
         if self._check_fields:
             assert \
-                isinstance(value, float), \
-                "The 'angle' field must be of type 'float'"
-            assert not (value < -1.7976931348623157e+308 or value > 1.7976931348623157e+308) or math.isinf(value), \
-                "The 'angle' field must be a double in [-1.7976931348623157e+308, 1.7976931348623157e+308]"
-        self._angle = value
-
-    @builtins.property
-    def angular_velocity(self):
-        """Message field 'angular_velocity'."""
-        return self._angular_velocity
-
-    @angular_velocity.setter
-    def angular_velocity(self, value):
-        if self._check_fields:
-            assert \
-                isinstance(value, float), \
-                "The 'angular_velocity' field must be of type 'float'"
-            assert not (value < -1.7976931348623157e+308 or value > 1.7976931348623157e+308) or math.isinf(value), \
-                "The 'angular_velocity' field must be a double in [-1.7976931348623157e+308, 1.7976931348623157e+308]"
-        self._angular_velocity = value
-
-    @builtins.property
-    def channels(self):
-        """Message field 'channels'."""
-        return self._channels
-
-    @channels.setter
-    def channels(self, value):
-        if self._check_fields:
-            if isinstance(value, array.array):
-                assert value.typecode == 'd', \
-                    "The 'channels' array.array() must have the type code of 'd'"
-                self._channels = value
-                return
-            from collections.abc import Sequence
-            from collections.abc import Set
-            from collections import UserList
-            from collections import UserString
-            assert \
-                ((isinstance(value, Sequence) or
-                  isinstance(value, Set) or
-                  isinstance(value, UserList)) and
-                 not isinstance(value, str) and
-                 not isinstance(value, UserString) and
-                 all(isinstance(v, float) for v in value) and
-                 all(not (val < -1.7976931348623157e+308 or val > 1.7976931348623157e+308) or math.isinf(val) for val in value)), \
-                "The 'channels' field must be a set or sequence and each value of type 'float' and each double in [-179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368.000000, 179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368.000000]"
-        self._channels = array.array('d', value)
+                isinstance(value, bool), \
+                "The 'active' field must be of type 'bool'"
+        self._active = value

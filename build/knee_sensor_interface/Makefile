@@ -406,6 +406,32 @@ knee_sensor_interface_s__rosidl_typesupport_c/fast:
 .PHONY : knee_sensor_interface_s__rosidl_typesupport_c/fast
 
 #=============================================================================
+# Target rules for targets named knee_sensor_interface_node
+
+# Build rule for target.
+knee_sensor_interface_node: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 knee_sensor_interface_node
+.PHONY : knee_sensor_interface_node
+
+# fast build rule for target.
+knee_sensor_interface_node/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/knee_sensor_interface_node.dir/build.make CMakeFiles/knee_sensor_interface_node.dir/build
+.PHONY : knee_sensor_interface_node/fast
+
+#=============================================================================
+# Target rules for targets named calculate_dead_zone
+
+# Build rule for target.
+calculate_dead_zone: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 calculate_dead_zone
+.PHONY : calculate_dead_zone
+
+# fast build rule for target.
+calculate_dead_zone/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/calculate_dead_zone.dir/build.make CMakeFiles/calculate_dead_zone.dir/build
+.PHONY : calculate_dead_zone/fast
+
+#=============================================================================
 # Target rules for targets named knee_sensor_interface__py
 
 # Build rule for target.
@@ -743,6 +769,54 @@ rosidl_typesupport_introspection_cpp/knee_sensor_interface/msg/detail/knee_senso
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/knee_sensor_interface__rosidl_typesupport_introspection_cpp.dir/build.make CMakeFiles/knee_sensor_interface__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/knee_sensor_interface/msg/detail/knee_sensor__type_support.cpp.s
 .PHONY : rosidl_typesupport_introspection_cpp/knee_sensor_interface/msg/detail/knee_sensor__type_support.cpp.s
 
+src/calculate_dead_zone.o: src/calculate_dead_zone.cpp.o
+.PHONY : src/calculate_dead_zone.o
+
+# target to build an object file
+src/calculate_dead_zone.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/calculate_dead_zone.dir/build.make CMakeFiles/calculate_dead_zone.dir/src/calculate_dead_zone.cpp.o
+.PHONY : src/calculate_dead_zone.cpp.o
+
+src/calculate_dead_zone.i: src/calculate_dead_zone.cpp.i
+.PHONY : src/calculate_dead_zone.i
+
+# target to preprocess a source file
+src/calculate_dead_zone.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/calculate_dead_zone.dir/build.make CMakeFiles/calculate_dead_zone.dir/src/calculate_dead_zone.cpp.i
+.PHONY : src/calculate_dead_zone.cpp.i
+
+src/calculate_dead_zone.s: src/calculate_dead_zone.cpp.s
+.PHONY : src/calculate_dead_zone.s
+
+# target to generate assembly for a file
+src/calculate_dead_zone.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/calculate_dead_zone.dir/build.make CMakeFiles/calculate_dead_zone.dir/src/calculate_dead_zone.cpp.s
+.PHONY : src/calculate_dead_zone.cpp.s
+
+src/knee_sensor_interface_node.o: src/knee_sensor_interface_node.cpp.o
+.PHONY : src/knee_sensor_interface_node.o
+
+# target to build an object file
+src/knee_sensor_interface_node.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/knee_sensor_interface_node.dir/build.make CMakeFiles/knee_sensor_interface_node.dir/src/knee_sensor_interface_node.cpp.o
+.PHONY : src/knee_sensor_interface_node.cpp.o
+
+src/knee_sensor_interface_node.i: src/knee_sensor_interface_node.cpp.i
+.PHONY : src/knee_sensor_interface_node.i
+
+# target to preprocess a source file
+src/knee_sensor_interface_node.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/knee_sensor_interface_node.dir/build.make CMakeFiles/knee_sensor_interface_node.dir/src/knee_sensor_interface_node.cpp.i
+.PHONY : src/knee_sensor_interface_node.cpp.i
+
+src/knee_sensor_interface_node.s: src/knee_sensor_interface_node.cpp.s
+.PHONY : src/knee_sensor_interface_node.s
+
+# target to generate assembly for a file
+src/knee_sensor_interface_node.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/knee_sensor_interface_node.dir/build.make CMakeFiles/knee_sensor_interface_node.dir/src/knee_sensor_interface_node.cpp.s
+.PHONY : src/knee_sensor_interface_node.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -765,6 +839,7 @@ help:
 	@echo "... knee_sensor_interface__rs"
 	@echo "... knee_sensor_interface_uninstall"
 	@echo "... uninstall"
+	@echo "... calculate_dead_zone"
 	@echo "... knee_sensor_interface__rosidl_generator_c"
 	@echo "... knee_sensor_interface__rosidl_generator_py"
 	@echo "... knee_sensor_interface__rosidl_typesupport_c"
@@ -773,6 +848,7 @@ help:
 	@echo "... knee_sensor_interface__rosidl_typesupport_fastrtps_cpp"
 	@echo "... knee_sensor_interface__rosidl_typesupport_introspection_c"
 	@echo "... knee_sensor_interface__rosidl_typesupport_introspection_cpp"
+	@echo "... knee_sensor_interface_node"
 	@echo "... knee_sensor_interface_s__rosidl_typesupport_c"
 	@echo "... knee_sensor_interface_s__rosidl_typesupport_fastrtps_c"
 	@echo "... knee_sensor_interface_s__rosidl_typesupport_introspection_c"
@@ -815,6 +891,12 @@ help:
 	@echo "... rosidl_typesupport_introspection_cpp/knee_sensor_interface/msg/detail/knee_sensor__type_support.o"
 	@echo "... rosidl_typesupport_introspection_cpp/knee_sensor_interface/msg/detail/knee_sensor__type_support.i"
 	@echo "... rosidl_typesupport_introspection_cpp/knee_sensor_interface/msg/detail/knee_sensor__type_support.s"
+	@echo "... src/calculate_dead_zone.o"
+	@echo "... src/calculate_dead_zone.i"
+	@echo "... src/calculate_dead_zone.s"
+	@echo "... src/knee_sensor_interface_node.o"
+	@echo "... src/knee_sensor_interface_node.i"
+	@echo "... src/knee_sensor_interface_node.s"
 .PHONY : help
 
 

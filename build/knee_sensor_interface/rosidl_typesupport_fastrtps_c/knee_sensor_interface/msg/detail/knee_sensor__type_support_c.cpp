@@ -36,8 +36,6 @@ extern "C"
 {
 #endif
 
-#include "rosidl_runtime_c/primitives_sequence.h"  // channels
-#include "rosidl_runtime_c/primitives_sequence_functions.h"  // channels
 #include "std_msgs/msg/detail/header__functions.h"  // header
 
 // forward declare type support functions
@@ -98,22 +96,9 @@ bool cdr_serialize_knee_sensor_interface__msg__KneeSensor(
       &ros_message->header, cdr);
   }
 
-  // Field name: angle
+  // Field name: active
   {
-    cdr << ros_message->angle;
-  }
-
-  // Field name: angular_velocity
-  {
-    cdr << ros_message->angular_velocity;
-  }
-
-  // Field name: channels
-  {
-    size_t size = ros_message->channels.size;
-    auto array_ptr = ros_message->channels.data;
-    cdr << static_cast<uint32_t>(size);
-    cdr.serialize_array(array_ptr, size);
+    cdr << (ros_message->active ? true : false);
   }
 
   return true;
@@ -129,40 +114,11 @@ bool cdr_deserialize_knee_sensor_interface__msg__KneeSensor(
     cdr_deserialize_std_msgs__msg__Header(cdr, &ros_message->header);
   }
 
-  // Field name: angle
+  // Field name: active
   {
-    cdr >> ros_message->angle;
-  }
-
-  // Field name: angular_velocity
-  {
-    cdr >> ros_message->angular_velocity;
-  }
-
-  // Field name: channels
-  {
-    uint32_t cdrSize;
-    cdr >> cdrSize;
-    size_t size = static_cast<size_t>(cdrSize);
-
-    // Check there are at least 'size' remaining bytes in the CDR stream before resizing
-    auto old_state = cdr.get_state();
-    bool correct_size = cdr.jump(size);
-    cdr.set_state(old_state);
-    if (!correct_size) {
-      fprintf(stderr, "sequence size exceeds remaining buffer\n");
-      return false;
-    }
-
-    if (ros_message->channels.data) {
-      rosidl_runtime_c__double__Sequence__fini(&ros_message->channels);
-    }
-    if (!rosidl_runtime_c__double__Sequence__init(&ros_message->channels, size)) {
-      fprintf(stderr, "failed to create array for field 'channels'");
-      return false;
-    }
-    auto array_ptr = ros_message->channels.data;
-    cdr.deserialize_array(array_ptr, size);
+    uint8_t tmp;
+    cdr >> tmp;
+    ros_message->active = tmp ? true : false;
   }
 
   return true;
@@ -187,29 +143,10 @@ size_t get_serialized_size_knee_sensor_interface__msg__KneeSensor(
   current_alignment += get_serialized_size_std_msgs__msg__Header(
     &(ros_message->header), current_alignment);
 
-  // Field name: angle
+  // Field name: active
   {
-    size_t item_size = sizeof(ros_message->angle);
+    size_t item_size = sizeof(ros_message->active);
     current_alignment += item_size +
-      eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
-  }
-
-  // Field name: angular_velocity
-  {
-    size_t item_size = sizeof(ros_message->angular_velocity);
-    current_alignment += item_size +
-      eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
-  }
-
-  // Field name: channels
-  {
-    size_t array_size = ros_message->channels.size;
-    auto array_ptr = ros_message->channels.data;
-    current_alignment += padding +
-      eprosima::fastcdr::Cdr::alignment(current_alignment, padding);
-    (void)array_ptr;
-    size_t item_size = sizeof(array_ptr[0]);
-    current_alignment += array_size * item_size +
       eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
   }
 
@@ -253,32 +190,11 @@ size_t max_serialized_size_knee_sensor_interface__msg__KneeSensor(
     }
   }
 
-  // Field name: angle
+  // Field name: active
   {
     size_t array_size = 1;
-    last_member_size = array_size * sizeof(uint64_t);
-    current_alignment += array_size * sizeof(uint64_t) +
-      eprosima::fastcdr::Cdr::alignment(current_alignment, sizeof(uint64_t));
-  }
-
-  // Field name: angular_velocity
-  {
-    size_t array_size = 1;
-    last_member_size = array_size * sizeof(uint64_t);
-    current_alignment += array_size * sizeof(uint64_t) +
-      eprosima::fastcdr::Cdr::alignment(current_alignment, sizeof(uint64_t));
-  }
-
-  // Field name: channels
-  {
-    size_t array_size = 0;
-    full_bounded = false;
-    is_plain = false;
-    current_alignment += padding +
-      eprosima::fastcdr::Cdr::alignment(current_alignment, padding);
-    last_member_size = array_size * sizeof(uint64_t);
-    current_alignment += array_size * sizeof(uint64_t) +
-      eprosima::fastcdr::Cdr::alignment(current_alignment, sizeof(uint64_t));
+    last_member_size = array_size * sizeof(uint8_t);
+    current_alignment += array_size * sizeof(uint8_t);
   }
 
 
@@ -290,7 +206,7 @@ size_t max_serialized_size_knee_sensor_interface__msg__KneeSensor(
     using DataType = knee_sensor_interface__msg__KneeSensor;
     is_plain =
       (
-      offsetof(DataType, channels) +
+      offsetof(DataType, active) +
       last_member_size
       ) == ret_val;
   }
@@ -308,22 +224,9 @@ bool cdr_serialize_key_knee_sensor_interface__msg__KneeSensor(
       &ros_message->header, cdr);
   }
 
-  // Field name: angle
+  // Field name: active
   {
-    cdr << ros_message->angle;
-  }
-
-  // Field name: angular_velocity
-  {
-    cdr << ros_message->angular_velocity;
-  }
-
-  // Field name: channels
-  {
-    size_t size = ros_message->channels.size;
-    auto array_ptr = ros_message->channels.data;
-    cdr << static_cast<uint32_t>(size);
-    cdr.serialize_array(array_ptr, size);
+    cdr << (ros_message->active ? true : false);
   }
 
   return true;
@@ -348,29 +251,10 @@ size_t get_serialized_size_key_knee_sensor_interface__msg__KneeSensor(
   current_alignment += get_serialized_size_key_std_msgs__msg__Header(
     &(ros_message->header), current_alignment);
 
-  // Field name: angle
+  // Field name: active
   {
-    size_t item_size = sizeof(ros_message->angle);
+    size_t item_size = sizeof(ros_message->active);
     current_alignment += item_size +
-      eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
-  }
-
-  // Field name: angular_velocity
-  {
-    size_t item_size = sizeof(ros_message->angular_velocity);
-    current_alignment += item_size +
-      eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
-  }
-
-  // Field name: channels
-  {
-    size_t array_size = ros_message->channels.size;
-    auto array_ptr = ros_message->channels.data;
-    current_alignment += padding +
-      eprosima::fastcdr::Cdr::alignment(current_alignment, padding);
-    (void)array_ptr;
-    size_t item_size = sizeof(array_ptr[0]);
-    current_alignment += array_size * item_size +
       eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
   }
 
@@ -412,32 +296,11 @@ size_t max_serialized_size_key_knee_sensor_interface__msg__KneeSensor(
     }
   }
 
-  // Field name: angle
+  // Field name: active
   {
     size_t array_size = 1;
-    last_member_size = array_size * sizeof(uint64_t);
-    current_alignment += array_size * sizeof(uint64_t) +
-      eprosima::fastcdr::Cdr::alignment(current_alignment, sizeof(uint64_t));
-  }
-
-  // Field name: angular_velocity
-  {
-    size_t array_size = 1;
-    last_member_size = array_size * sizeof(uint64_t);
-    current_alignment += array_size * sizeof(uint64_t) +
-      eprosima::fastcdr::Cdr::alignment(current_alignment, sizeof(uint64_t));
-  }
-
-  // Field name: channels
-  {
-    size_t array_size = 0;
-    full_bounded = false;
-    is_plain = false;
-    current_alignment += padding +
-      eprosima::fastcdr::Cdr::alignment(current_alignment, padding);
-    last_member_size = array_size * sizeof(uint64_t);
-    current_alignment += array_size * sizeof(uint64_t) +
-      eprosima::fastcdr::Cdr::alignment(current_alignment, sizeof(uint64_t));
+    last_member_size = array_size * sizeof(uint8_t);
+    current_alignment += array_size * sizeof(uint8_t);
   }
 
   size_t ret_val = current_alignment - initial_alignment;
@@ -448,7 +311,7 @@ size_t max_serialized_size_key_knee_sensor_interface__msg__KneeSensor(
     using DataType = knee_sensor_interface__msg__KneeSensor;
     is_plain =
       (
-      offsetof(DataType, channels) +
+      offsetof(DataType, active) +
       last_member_size
       ) == ret_val;
   }
