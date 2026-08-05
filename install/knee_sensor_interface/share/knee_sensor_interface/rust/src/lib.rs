@@ -1,0 +1,1 @@
+/home/jdurs/benchTest/build/knee_sensor_interface/rosidl_generator_rs/knee_sensor_interface/rust/src/lib.rs

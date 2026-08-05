@@ -1,0 +1,206 @@
+-- The C compiler identification is GNU 13.3.0
+-- The CXX compiler identification is GNU 13.3.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found ament_cmake: 2.5.6 (/home/jdurs/ros2_jazzy/install/ament_cmake/share/ament_cmake/cmake)
+-- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+-- Override CMake install command with custom implementation using symlinks instead of copying resources
+-- Found rosidl_default_generators: 1.6.0 (/home/jdurs/ros2_jazzy/install/rosidl_default_generators/share/rosidl_default_generators/cmake)
+-- Using all available rosidl_typesupport_c: rosidl_typesupport_introspection_c;rosidl_typesupport_fastrtps_c
+-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_introspection_cpp;rosidl_typesupport_fastrtps_cpp
+-- Found rosidl_adapter: 4.6.7 (/home/jdurs/ros2_jazzy/install/rosidl_adapter/share/rosidl_adapter/cmake)
+-- Found std_msgs: 5.3.7 (/home/jdurs/ros2_jazzy/install/std_msgs/share/std_msgs/cmake)
+-- Found ament_cmake_ros: 0.12.0 (/home/jdurs/ros2_jazzy/install/ament_cmake_ros/share/ament_cmake_ros/cmake)
+-- Using all available rosidl_typesupport_c: rosidl_typesupport_introspection_c;rosidl_typesupport_fastrtps_c
+-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_introspection_cpp;rosidl_typesupport_fastrtps_cpp
+-- Found python_cmake_module: 0.11.1 (/home/jdurs/ros2_jazzy/install/python_cmake_module/share/python_cmake_module/cmake)
+-- Found PythonExtra: /usr/bin/python3  
+-- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter Development NumPy Development.Module Development.Embed 
+-- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+-- Found ament_lint_auto: 0.17.4 (/home/jdurs/ros2_jazzy/install/ament_lint_auto/share/ament_lint_auto/cmake)
+-- Added test 'lint_cmake' to check CMake code style
+-- Added test 'xmllint' to check XML markup files
+-- Configuring done (6.2s)
+-- Generating done (0.0s)
+-- Build files have been written to: /home/jdurs/benchTest/build/knee_sensor_interface
+[  2%] Generating Rust code for ROS interfaces
+[  5%] Generating type hashes for ROS interfaces
+[  5%] Built target ament_cmake_python_symlink_knee_sensor_interface
+[  5%] Built target knee_sensor_interface__rosidl_generator_type_description
+[  8%] Generating C code for ROS interfaces
+[  8%] Built target knee_sensor_interface__rs
+[ 11%] Generating C++ code for ROS interfaces
+running egg_info
+creating knee_sensor_interface.egg-info
+writing knee_sensor_interface.egg-info/PKG-INFO
+writing dependency_links to knee_sensor_interface.egg-info/dependency_links.txt
+writing top-level names to knee_sensor_interface.egg-info/top_level.txt
+writing manifest file 'knee_sensor_interface.egg-info/SOURCES.txt'
+reading manifest file 'knee_sensor_interface.egg-info/SOURCES.txt'
+writing manifest file 'knee_sensor_interface.egg-info/SOURCES.txt'
+[ 11%] Built target ament_cmake_python_build_knee_sensor_interface_egg
+[ 11%] Built target knee_sensor_interface__cpp
+[ 20%] Building C object CMakeFiles/knee_sensor_interface__rosidl_generator_c.dir/rosidl_generator_c/knee_sensor_interface/msg/detail/knee_sensor__type_support.c.o
+[ 20%] Building C object CMakeFiles/knee_sensor_interface__rosidl_generator_c.dir/rosidl_generator_c/knee_sensor_interface/msg/detail/knee_sensor__functions.c.o
+[ 20%] Building C object CMakeFiles/knee_sensor_interface__rosidl_generator_c.dir/rosidl_generator_c/knee_sensor_interface/msg/detail/knee_sensor__description.c.o
+[ 22%] Linking C shared library libknee_sensor_interface__rosidl_generator_c.so
+[ 22%] Built target knee_sensor_interface__rosidl_generator_c
+[ 28%] Generating C introspection for ROS interfaces
+[ 25%] Generating C type support dispatch for ROS interfaces
+[ 31%] Generating C type support for eProsima Fast-RTPS
+[ 34%] Generating C++ type support dispatch for ROS interfaces
+[ 37%] Generating C++ type support for eProsima Fast-RTPS
+[ 40%] Generating C++ introspection for ROS interfaces
+[ 42%] Building CXX object CMakeFiles/knee_sensor_interface__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/knee_sensor_interface/msg/knee_sensor__type_support.cpp.o
+[ 45%] Building CXX object CMakeFiles/knee_sensor_interface__rosidl_typesupport_c.dir/rosidl_typesupport_c/knee_sensor_interface/msg/knee_sensor__type_support.cpp.o
+[ 48%] Building C object CMakeFiles/knee_sensor_interface__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/knee_sensor_interface/msg/detail/knee_sensor__type_support.c.o
+[ 51%] Building CXX object CMakeFiles/knee_sensor_interface__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/knee_sensor_interface/msg/detail/knee_sensor__type_support.cpp.o
+[ 54%] Building CXX object CMakeFiles/knee_sensor_interface__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/knee_sensor_interface/msg/detail/dds_fastrtps/knee_sensor__type_support.cpp.o
+[ 57%] Building CXX object CMakeFiles/knee_sensor_interface__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/knee_sensor_interface/msg/detail/knee_sensor__type_support_c.cpp.o
+[ 60%] Linking CXX shared library libknee_sensor_interface__rosidl_typesupport_c.so
+[ 62%] Linking C shared library libknee_sensor_interface__rosidl_typesupport_introspection_c.so
+[ 62%] Built target knee_sensor_interface__rosidl_typesupport_c
+[ 62%] Built target knee_sensor_interface__rosidl_typesupport_introspection_c
+[ 65%] Linking CXX shared library libknee_sensor_interface__rosidl_typesupport_cpp.so
+[ 68%] Linking CXX shared library libknee_sensor_interface__rosidl_typesupport_introspection_cpp.so
+[ 71%] Linking CXX shared library libknee_sensor_interface__rosidl_typesupport_fastrtps_c.so
+[ 74%] Linking CXX shared library libknee_sensor_interface__rosidl_typesupport_fastrtps_cpp.so
+[ 74%] Built target knee_sensor_interface__rosidl_typesupport_cpp
+[ 74%] Built target knee_sensor_interface__rosidl_typesupport_introspection_cpp
+[ 74%] Built target knee_sensor_interface__rosidl_typesupport_fastrtps_c
+[ 74%] Built target knee_sensor_interface__rosidl_typesupport_fastrtps_cpp
+[ 74%] Built target knee_sensor_interface
+[ 77%] Generating Python code for ROS interfaces
+[ 77%] Built target knee_sensor_interface__py
+[ 80%] Building C object CMakeFiles/knee_sensor_interface__rosidl_generator_py.dir/rosidl_generator_py/knee_sensor_interface/msg/_knee_sensor_s.c.o
+[ 82%] Linking C shared library libknee_sensor_interface__rosidl_generator_py.so
+[ 82%] Built target knee_sensor_interface__rosidl_generator_py
+[ 85%] Building C object CMakeFiles/knee_sensor_interface_s__rosidl_typesupport_introspection_c.dir/rosidl_generator_py/knee_sensor_interface/_knee_sensor_interface_s.ep.rosidl_typesupport_introspection_c.c.o
+[ 88%] Building C object CMakeFiles/knee_sensor_interface_s__rosidl_typesupport_fastrtps_c.dir/rosidl_generator_py/knee_sensor_interface/_knee_sensor_interface_s.ep.rosidl_typesupport_fastrtps_c.c.o
+[ 91%] Building C object CMakeFiles/knee_sensor_interface_s__rosidl_typesupport_c.dir/rosidl_generator_py/knee_sensor_interface/_knee_sensor_interface_s.ep.rosidl_typesupport_c.c.o
+[ 94%] Linking C shared module rosidl_generator_py/knee_sensor_interface/knee_sensor_interface_s__rosidl_typesupport_fastrtps_c.so
+[ 97%] Linking C shared module rosidl_generator_py/knee_sensor_interface/knee_sensor_interface_s__rosidl_typesupport_introspection_c.so
+[100%] Linking C shared module rosidl_generator_py/knee_sensor_interface/knee_sensor_interface_s__rosidl_typesupport_c.so
+[100%] Built target knee_sensor_interface_s__rosidl_typesupport_introspection_c
+[100%] Built target knee_sensor_interface_s__rosidl_typesupport_c
+[100%] Built target knee_sensor_interface_s__rosidl_typesupport_fastrtps_c
+-- Install configuration: ""
+-- Execute custom install script
+-- Symlinking: /home/jdurs/benchTest/install/knee_sensor_interface/share/ament_index/resource_index/rosidl_interfaces/knee_sensor_interface
+-- Symlinking: /home/jdurs/benchTest/install/knee_sensor_interface/share/knee_sensor_interface/msg/KneeSensor.json
+-- Symlinking: /home/jdurs/benchTest/install/knee_sensor_interface/include/knee_sensor_interface/knee_sensor_interface/msg/detail/knee_sensor__functions.h
+-- Symlinking: /home/jdurs/benchTest/install/knee_sensor_interface/include/knee_sensor_interface/knee_sensor_interface/msg/detail/knee_sensor__struct.h
+-- Symlinking: /home/jdurs/benchTest/install/knee_sensor_interface/include/knee_sensor_interface/knee_sensor_interface/msg/detail/knee_sensor__type_support.h
+-- Symlinking: /home/jdurs/benchTest/install/knee_sensor_interface/include/knee_sensor_interface/knee_sensor_interface/msg/knee_sensor.h
+-- Symlinking: /home/jdurs/benchTest/install/knee_sensor_interface/include/knee_sensor_interface/knee_sensor_interface/msg/rosidl_generator_c__visibility_control.h
+-- Symlinking: /home/jdurs/benchTest/install/knee_sensor_interface/share/knee_sensor_interface/environment/library_path.sh
+-- Symlinking: /home/jdurs/benchTest/install/knee_sensor_interface/share/knee_sensor_interface/environment/library_path.dsv
+-- Symlinking: /home/jdurs/benchTest/install/knee_sensor_interface/include/knee_sensor_interface/knee_sensor_interface/msg/detail/knee_sensor__rosidl_typesupport_introspection_c.h
+-- Symlinking: /home/jdurs/benchTest/install/knee_sensor_interface/include/knee_sensor_interface/knee_sensor_interface/msg/rosidl_typesupport_introspection_c__visibility_control.h
+-- Symlinking: /home/jdurs/benchTest/install/knee_sensor_interface/include/knee_sensor_interface/knee_sensor_interface/msg/detail/knee_sensor__rosidl_typesupport_fastrtps_c.h
+-- Symlinking: /home/jdurs/benchTest/install/knee_sensor_interface/include/knee_sensor_interface/knee_sensor_interface/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+-- Symlinking: /home/jdurs/benchTest/install/knee_sensor_interface/include/knee_sensor_interface/knee_sensor_interface/msg/detail/knee_sensor__builder.hpp
+-- Symlinking: /home/jdurs/benchTest/install/knee_sensor_interface/include/knee_sensor_interface/knee_sensor_interface/msg/detail/knee_sensor__struct.hpp
+-- Symlinking: /home/jdurs/benchTest/install/knee_sensor_interface/include/knee_sensor_interface/knee_sensor_interface/msg/detail/knee_sensor__traits.hpp
+-- Symlinking: /home/jdurs/benchTest/install/knee_sensor_interface/include/knee_sensor_interface/knee_sensor_interface/msg/detail/knee_sensor__type_support.hpp
+-- Symlinking: /home/jdurs/benchTest/install/knee_sensor_interface/include/knee_sensor_interface/knee_sensor_interface/msg/knee_sensor.hpp
+-- Symlinking: /home/jdurs/benchTest/install/knee_sensor_interface/include/knee_sensor_interface/knee_sensor_interface/msg/rosidl_generator_cpp__visibility_control.hpp
+-- Symlinking: /home/jdurs/benchTest/install/knee_sensor_interface/include/knee_sensor_interface/knee_sensor_interface/msg/detail/knee_sensor__rosidl_typesupport_introspection_cpp.hpp
+-- Symlinking: /home/jdurs/benchTest/install/knee_sensor_interface/include/knee_sensor_interface/knee_sensor_interface/msg/detail/knee_sensor__rosidl_typesupport_fastrtps_cpp.hpp
+-- Symlinking: /home/jdurs/benchTest/install/knee_sensor_interface/include/knee_sensor_interface/knee_sensor_interface/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+-- Symlinking: /home/jdurs/benchTest/install/knee_sensor_interface/share/knee_sensor_interface/environment/pythonpath.sh
+-- Symlinking: /home/jdurs/benchTest/install/knee_sensor_interface/share/knee_sensor_interface/environment/pythonpath.dsv
+-- Symlinking: /home/jdurs/benchTest/install/knee_sensor_interface/lib/python3.12/site-packages/knee_sensor_interface-0.0.0-py3.12.egg-info/PKG-INFO
+-- Symlinking: /home/jdurs/benchTest/install/knee_sensor_interface/lib/python3.12/site-packages/knee_sensor_interface-0.0.0-py3.12.egg-info/SOURCES.txt
+-- Symlinking: /home/jdurs/benchTest/install/knee_sensor_interface/lib/python3.12/site-packages/knee_sensor_interface-0.0.0-py3.12.egg-info/dependency_links.txt
+-- Symlinking: /home/jdurs/benchTest/install/knee_sensor_interface/lib/python3.12/site-packages/knee_sensor_interface-0.0.0-py3.12.egg-info/top_level.txt
+-- Symlinking: /home/jdurs/benchTest/install/knee_sensor_interface/lib/python3.12/site-packages/knee_sensor_interface/__init__.py
+-- Symlinking: /home/jdurs/benchTest/install/knee_sensor_interface/lib/python3.12/site-packages/knee_sensor_interface/_knee_sensor_interface_s.ep.rosidl_typesupport_c.c
+-- Symlinking: /home/jdurs/benchTest/install/knee_sensor_interface/lib/python3.12/site-packages/knee_sensor_interface/_knee_sensor_interface_s.ep.rosidl_typesupport_fastrtps_c.c
+-- Symlinking: /home/jdurs/benchTest/install/knee_sensor_interface/lib/python3.12/site-packages/knee_sensor_interface/_knee_sensor_interface_s.ep.rosidl_typesupport_introspection_c.c
+-- Symlinking: /home/jdurs/benchTest/install/knee_sensor_interface/lib/python3.12/site-packages/knee_sensor_interface/knee_sensor_interface_s__rosidl_typesupport_c.so
+-- Symlinking: /home/jdurs/benchTest/install/knee_sensor_interface/lib/python3.12/site-packages/knee_sensor_interface/knee_sensor_interface_s__rosidl_typesupport_fastrtps_c.so
+-- Symlinking: /home/jdurs/benchTest/install/knee_sensor_interface/lib/python3.12/site-packages/knee_sensor_interface/knee_sensor_interface_s__rosidl_typesupport_introspection_c.so
+-- Symlinking: /home/jdurs/benchTest/install/knee_sensor_interface/lib/python3.12/site-packages/knee_sensor_interface/msg/__init__.py
+-- Symlinking: /home/jdurs/benchTest/install/knee_sensor_interface/lib/python3.12/site-packages/knee_sensor_interface/msg/_knee_sensor.py
+-- Symlinking: /home/jdurs/benchTest/install/knee_sensor_interface/lib/python3.12/site-packages/knee_sensor_interface/msg/_knee_sensor_s.c
+-- Up-to-date symlink: /home/jdurs/benchTest/install/knee_sensor_interface/lib/python3.12/site-packages/knee_sensor_interface/knee_sensor_interface_s__rosidl_typesupport_introspection_c.so
+-- Up-to-date symlink: /home/jdurs/benchTest/install/knee_sensor_interface/lib/python3.12/site-packages/knee_sensor_interface/knee_sensor_interface_s__rosidl_typesupport_fastrtps_c.so
+-- Up-to-date symlink: /home/jdurs/benchTest/install/knee_sensor_interface/lib/python3.12/site-packages/knee_sensor_interface/knee_sensor_interface_s__rosidl_typesupport_c.so
+-- Symlinking: /home/jdurs/benchTest/install/knee_sensor_interface/share/ament_index/resource_index/rust_packages/knee_sensor_interface
+-- Symlinking: /home/jdurs/benchTest/install/knee_sensor_interface/share/knee_sensor_interface/rust/Cargo.toml
+-- Symlinking: /home/jdurs/benchTest/install/knee_sensor_interface/share/knee_sensor_interface/rust/build.rs
+-- Symlinking: /home/jdurs/benchTest/install/knee_sensor_interface/share/knee_sensor_interface/rust/src/lib.rs
+-- Symlinking: /home/jdurs/benchTest/install/knee_sensor_interface/share/knee_sensor_interface/rust/src/msg.rs
+-- Symlinking: /home/jdurs/benchTest/install/knee_sensor_interface/share/knee_sensor_interface/rust/src/msg/rmw.rs
+-- Symlinking: /home/jdurs/benchTest/install/knee_sensor_interface/share/knee_sensor_interface/msg/KneeSensor.idl
+-- Symlinking: /home/jdurs/benchTest/install/knee_sensor_interface/share/knee_sensor_interface/msg/KneeSensor.msg
+-- Symlinking: /home/jdurs/benchTest/install/knee_sensor_interface/share/ament_index/resource_index/package_run_dependencies/knee_sensor_interface
+-- Symlinking: /home/jdurs/benchTest/install/knee_sensor_interface/share/ament_index/resource_index/parent_prefix_path/knee_sensor_interface
+-- Symlinking: /home/jdurs/benchTest/install/knee_sensor_interface/share/knee_sensor_interface/environment/ament_prefix_path.sh
+-- Symlinking: /home/jdurs/benchTest/install/knee_sensor_interface/share/knee_sensor_interface/environment/ament_prefix_path.dsv
+-- Symlinking: /home/jdurs/benchTest/install/knee_sensor_interface/share/knee_sensor_interface/environment/path.sh
+-- Symlinking: /home/jdurs/benchTest/install/knee_sensor_interface/share/knee_sensor_interface/environment/path.dsv
+-- Symlinking: /home/jdurs/benchTest/install/knee_sensor_interface/share/knee_sensor_interface/local_setup.bash
+-- Symlinking: /home/jdurs/benchTest/install/knee_sensor_interface/share/knee_sensor_interface/local_setup.sh
+-- Symlinking: /home/jdurs/benchTest/install/knee_sensor_interface/share/knee_sensor_interface/local_setup.zsh
+-- Symlinking: /home/jdurs/benchTest/install/knee_sensor_interface/share/knee_sensor_interface/local_setup.dsv
+-- Symlinking: /home/jdurs/benchTest/install/knee_sensor_interface/share/knee_sensor_interface/package.dsv
+-- Symlinking: /home/jdurs/benchTest/install/knee_sensor_interface/share/ament_index/resource_index/packages/knee_sensor_interface
+-- Symlinking: /home/jdurs/benchTest/install/knee_sensor_interface/share/knee_sensor_interface/cmake/rosidl_cmake-extras.cmake
+-- Symlinking: /home/jdurs/benchTest/install/knee_sensor_interface/share/knee_sensor_interface/cmake/ament_cmake_export_dependencies-extras.cmake
+-- Symlinking: /home/jdurs/benchTest/install/knee_sensor_interface/share/knee_sensor_interface/cmake/ament_cmake_export_include_directories-extras.cmake
+-- Symlinking: /home/jdurs/benchTest/install/knee_sensor_interface/share/knee_sensor_interface/cmake/ament_cmake_export_libraries-extras.cmake
+-- Symlinking: /home/jdurs/benchTest/install/knee_sensor_interface/share/knee_sensor_interface/cmake/ament_cmake_export_targets-extras.cmake
+-- Symlinking: /home/jdurs/benchTest/install/knee_sensor_interface/share/knee_sensor_interface/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+-- Symlinking: /home/jdurs/benchTest/install/knee_sensor_interface/share/knee_sensor_interface/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+-- Symlinking: /home/jdurs/benchTest/install/knee_sensor_interface/share/knee_sensor_interface/cmake/rosidl_cmake_aggregate_target-extras.cmake
+-- Symlinking: /home/jdurs/benchTest/install/knee_sensor_interface/share/knee_sensor_interface/cmake/knee_sensor_interfaceConfig.cmake
+-- Symlinking: /home/jdurs/benchTest/install/knee_sensor_interface/share/knee_sensor_interface/cmake/knee_sensor_interfaceConfig-version.cmake
+-- Symlinking: /home/jdurs/benchTest/install/knee_sensor_interface/share/knee_sensor_interface/package.xml
+-- Installing: /home/jdurs/benchTest/install/knee_sensor_interface/lib/libknee_sensor_interface__rosidl_generator_c.so
+-- Set non-toolchain portion of runtime path of "/home/jdurs/benchTest/install/knee_sensor_interface/lib/libknee_sensor_interface__rosidl_generator_c.so" to ""
+-- Installing: /home/jdurs/benchTest/install/knee_sensor_interface/lib/libknee_sensor_interface__rosidl_typesupport_introspection_c.so
+-- Set non-toolchain portion of runtime path of "/home/jdurs/benchTest/install/knee_sensor_interface/lib/libknee_sensor_interface__rosidl_typesupport_introspection_c.so" to ""
+-- Installing: /home/jdurs/benchTest/install/knee_sensor_interface/lib/libknee_sensor_interface__rosidl_typesupport_fastrtps_c.so
+-- Set non-toolchain portion of runtime path of "/home/jdurs/benchTest/install/knee_sensor_interface/lib/libknee_sensor_interface__rosidl_typesupport_fastrtps_c.so" to ""
+-- Installing: /home/jdurs/benchTest/install/knee_sensor_interface/lib/libknee_sensor_interface__rosidl_typesupport_c.so
+-- Set non-toolchain portion of runtime path of "/home/jdurs/benchTest/install/knee_sensor_interface/lib/libknee_sensor_interface__rosidl_typesupport_c.so" to ""
+-- Installing: /home/jdurs/benchTest/install/knee_sensor_interface/lib/libknee_sensor_interface__rosidl_typesupport_introspection_cpp.so
+-- Set non-toolchain portion of runtime path of "/home/jdurs/benchTest/install/knee_sensor_interface/lib/libknee_sensor_interface__rosidl_typesupport_introspection_cpp.so" to ""
+-- Installing: /home/jdurs/benchTest/install/knee_sensor_interface/lib/libknee_sensor_interface__rosidl_typesupport_fastrtps_cpp.so
+-- Set non-toolchain portion of runtime path of "/home/jdurs/benchTest/install/knee_sensor_interface/lib/libknee_sensor_interface__rosidl_typesupport_fastrtps_cpp.so" to ""
+-- Installing: /home/jdurs/benchTest/install/knee_sensor_interface/lib/libknee_sensor_interface__rosidl_typesupport_cpp.so
+-- Set non-toolchain portion of runtime path of "/home/jdurs/benchTest/install/knee_sensor_interface/lib/libknee_sensor_interface__rosidl_typesupport_cpp.so" to ""
+Listing '/home/jdurs/benchTest/install/knee_sensor_interface/lib/python3.12/site-packages/knee_sensor_interface'...
+Compiling '/home/jdurs/benchTest/install/knee_sensor_interface/lib/python3.12/site-packages/knee_sensor_interface/__init__.py'...
+Listing '/home/jdurs/benchTest/install/knee_sensor_interface/lib/python3.12/site-packages/knee_sensor_interface/msg'...
+Compiling '/home/jdurs/benchTest/install/knee_sensor_interface/lib/python3.12/site-packages/knee_sensor_interface/msg/__init__.py'...
+Compiling '/home/jdurs/benchTest/install/knee_sensor_interface/lib/python3.12/site-packages/knee_sensor_interface/msg/_knee_sensor.py'...
+-- Installing: /home/jdurs/benchTest/install/knee_sensor_interface/lib/libknee_sensor_interface__rosidl_generator_py.so
+-- Set non-toolchain portion of runtime path of "/home/jdurs/benchTest/install/knee_sensor_interface/lib/libknee_sensor_interface__rosidl_generator_py.so" to ""
+-- Installing: /home/jdurs/benchTest/install/knee_sensor_interface/share/knee_sensor_interface/cmake/export_knee_sensor_interface__rosidl_generator_cExport.cmake
+-- Installing: /home/jdurs/benchTest/install/knee_sensor_interface/share/knee_sensor_interface/cmake/export_knee_sensor_interface__rosidl_generator_cExport-noconfig.cmake
+-- Installing: /home/jdurs/benchTest/install/knee_sensor_interface/share/knee_sensor_interface/cmake/knee_sensor_interface__rosidl_typesupport_introspection_cExport.cmake
+-- Installing: /home/jdurs/benchTest/install/knee_sensor_interface/share/knee_sensor_interface/cmake/knee_sensor_interface__rosidl_typesupport_introspection_cExport-noconfig.cmake
+-- Installing: /home/jdurs/benchTest/install/knee_sensor_interface/share/knee_sensor_interface/cmake/export_knee_sensor_interface__rosidl_typesupport_fastrtps_cExport.cmake
+-- Installing: /home/jdurs/benchTest/install/knee_sensor_interface/share/knee_sensor_interface/cmake/export_knee_sensor_interface__rosidl_typesupport_fastrtps_cExport-noconfig.cmake
+-- Installing: /home/jdurs/benchTest/install/knee_sensor_interface/share/knee_sensor_interface/cmake/knee_sensor_interface__rosidl_typesupport_cExport.cmake
+-- Installing: /home/jdurs/benchTest/install/knee_sensor_interface/share/knee_sensor_interface/cmake/knee_sensor_interface__rosidl_typesupport_cExport-noconfig.cmake
+-- Installing: /home/jdurs/benchTest/install/knee_sensor_interface/share/knee_sensor_interface/cmake/export_knee_sensor_interface__rosidl_generator_cppExport.cmake
+-- Installing: /home/jdurs/benchTest/install/knee_sensor_interface/share/knee_sensor_interface/cmake/knee_sensor_interface__rosidl_typesupport_introspection_cppExport.cmake
+-- Installing: /home/jdurs/benchTest/install/knee_sensor_interface/share/knee_sensor_interface/cmake/knee_sensor_interface__rosidl_typesupport_introspection_cppExport-noconfig.cmake
+-- Installing: /home/jdurs/benchTest/install/knee_sensor_interface/share/knee_sensor_interface/cmake/export_knee_sensor_interface__rosidl_typesupport_fastrtps_cppExport.cmake
+-- Installing: /home/jdurs/benchTest/install/knee_sensor_interface/share/knee_sensor_interface/cmake/export_knee_sensor_interface__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake
+-- Installing: /home/jdurs/benchTest/install/knee_sensor_interface/share/knee_sensor_interface/cmake/knee_sensor_interface__rosidl_typesupport_cppExport.cmake
+-- Installing: /home/jdurs/benchTest/install/knee_sensor_interface/share/knee_sensor_interface/cmake/knee_sensor_interface__rosidl_typesupport_cppExport-noconfig.cmake
+-- Installing: /home/jdurs/benchTest/install/knee_sensor_interface/share/knee_sensor_interface/cmake/export_knee_sensor_interface__rosidl_generator_pyExport.cmake
+-- Installing: /home/jdurs/benchTest/install/knee_sensor_interface/share/knee_sensor_interface/cmake/export_knee_sensor_interface__rosidl_generator_pyExport-noconfig.cmake

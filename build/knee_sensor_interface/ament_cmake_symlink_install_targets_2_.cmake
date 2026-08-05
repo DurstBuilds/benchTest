@@ -1,0 +1,1 @@
+ament_cmake_symlink_install_targets("TARGET_FILES" "/home/jdurs/benchTest/build/knee_sensor_interface/rosidl_generator_py/knee_sensor_interface/knee_sensor_interface_s__rosidl_typesupport_c.so" "TARGETS" "knee_sensor_interface_s__rosidl_typesupport_c" "DESTINATION" "lib/python3.12/site-packages/knee_sensor_interface")

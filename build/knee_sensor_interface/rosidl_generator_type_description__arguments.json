@@ -1,0 +1,11 @@
+{
+  "package_name": "knee_sensor_interface",
+  "output_dir": "/home/jdurs/benchTest/build/knee_sensor_interface/rosidl_generator_type_description/knee_sensor_interface",
+  "idl_tuples": [
+    "/home/jdurs/benchTest/build/knee_sensor_interface/rosidl_adapter/knee_sensor_interface:msg/KneeSensor.idl"
+  ],
+  "include_paths": [
+    "std_msgs:/home/jdurs/ros2_jazzy/install/std_msgs/share/std_msgs",
+    "builtin_interfaces:/home/jdurs/ros2_jazzy/install/builtin_interfaces/share/builtin_interfaces"
+  ]
+}
