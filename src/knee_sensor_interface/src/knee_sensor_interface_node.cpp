@@ -39,7 +39,7 @@ public:
   {
     // TWEAK: chip, line, polarity, rate, and topic
     gpio_chip_ = declare_parameter<std::string>("gpio_chip", "gpiochip0");
-    gpio_line_ = declare_parameter<int>("gpio_line", 25);
+    gpio_line_ = declare_parameter<int>("gpio_line", 23);
     active_low_ = declare_parameter<bool>("active_low", true);
     const double publish_rate_hz = declare_parameter<double>("publish_rate_hz", 50.0);
     const auto sensor_topic = declare_parameter<std::string>("sensor_topic", "knee_sensor");
@@ -150,7 +150,7 @@ private:
   }
 
   std::string gpio_chip_;
-  int gpio_line_ {25};
+  int gpio_line_ {23};
   bool active_low_ {true};
   gpiod_chip * chip_ {nullptr};
   gpiod_line * line_ {nullptr};
