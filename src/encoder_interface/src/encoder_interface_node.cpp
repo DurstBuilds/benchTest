@@ -6,7 +6,7 @@
 // read/write access to /dev/spidev* (udev rule or membership in the spi group).
 //
 // Parameters (TWEAK via launch or ros2 param):
-//   spi_device         — spidev path (default /dev/spidev0.0)
+//   spi_device         — spidev path (default /dev/spidev1.0)
 //   spi_speed_hz       — SPI clock Hz (default 1000000)
 //   publish_rate_hz    — read/publish rate (default 100.0)
 //   angle_topic        — publication name (default encoder_angle)
@@ -63,7 +63,7 @@ public:
   : Node("encoder_interface_node")
   {
     // TWEAK: spidev path, clock, publish rate, topic, and zero offset
-    spi_device_ = declare_parameter<std::string>("spi_device", "/dev/spidev0.0");
+    spi_device_ = declare_parameter<std::string>("spi_device", "/dev/spidev1.0");
     spi_speed_hz_ = declare_parameter<int>("spi_speed_hz", 1000000);
     const double publish_rate_hz = declare_parameter<double>("publish_rate_hz", 100.0);
     const auto angle_topic = declare_parameter<std::string>("angle_topic", "encoder_angle");
