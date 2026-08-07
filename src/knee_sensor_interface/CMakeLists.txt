@@ -11,8 +11,8 @@ find_package(rclcpp REQUIRED)
 find_package(std_msgs REQUIRED)
 find_package(builtin_interfaces REQUIRED)
 
-find_library(GPIOD_LIBRARY gpiod REQUIRED)
-find_path(GPIOD_INCLUDE_DIR gpiod.h REQUIRED)
+find_package(PkgConfig REQUIRED)
+pkg_check_modules(GPIOD REQUIRED libgpiod>=2.0)
 
 # Add more interface files here as needed, e.g.:
 #   "srv/Calibrate.srv"
@@ -36,8 +36,10 @@ rosidl_get_typesupport_target(cpp_typesupport_target ${PROJECT_NAME} "rosidl_typ
 
 add_executable(knee_sensor_interface_node src/knee_sensor_interface_node.cpp)
 ament_target_dependencies(knee_sensor_interface_node rclcpp)
-target_include_directories(knee_sensor_interface_node PRIVATE ${GPIOD_INCLUDE_DIR})
-target_link_libraries(knee_sensor_interface_node "${cpp_typesupport_target}" ${GPIOD_LIBRARY})
+target_include_directories(knee_sensor_interface_node PRIVATE ${GPIOD_INCLUDE_DIRS})
+target_link_directories(knee_sensor_interface_node PRIVATE ${GPIOD_LIBRARY_DIRS})
+target_link_libraries(knee_sensor_interface_node "${cpp_typesupport_target}" ${GPIOD_LIBRARIES})
+target_compile_options(knee_sensor_interface_node PRIVATE ${GPIOD_CFLAGS_OTHER})
 
 add_executable(calculate_dead_zone src/calculate_dead_zone.cpp)
 ament_target_dependencies(calculate_dead_zone rclcpp std_msgs)

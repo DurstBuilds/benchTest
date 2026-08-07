@@ -3,7 +3,7 @@
 <package format="3">
   <name>knee_sensor_interface</name>
   <version>0.0.0</version>
-  <description>ROS 2 interface to read a PIC HS-3511-02-0300 latching Hall on GPIO</description>
+  <description>ROS 2 interface to read a PIC HS-3511-02-0300 latching Hall on GPIO (libgpiod v2 edge detection)</description>
   <maintainer email="jdurst2000@gmail.com">jdurs</maintainer>
   <license>Apache-2.0</license>
 
