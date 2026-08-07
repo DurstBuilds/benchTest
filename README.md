@@ -40,7 +40,7 @@ An ideal bipolar latch switches every half-turn (π rad). Positive values mean t
 | `odrive_interface` | SocketCAN velocity control of an ODrive Micro, plus a keyboard RPM prompt |
 | `encoder_interface` | AS5047D over SPI → `encoder_angle`; `~/zero` service |
 | `knee_sensor_interface` | HS-3511 GPIO edges → `knee_sensor`; also hosts `calculate_dead_zone` |
-| `experiment_manager` | Automated RPM sweep; mean latch angles per arm → bag |
+| `experiment_manager` | Automated RPM sweep; raw latch angles per arm → bag |
 
 ## Quick start
 
@@ -60,7 +60,7 @@ ros2 topic echo /dead_zone
 
 ## Automated latch-angle experiment
 
-Sweeps motor speed (6, then 10…80 RPM forward, settle at 0, then the same speeds reverse). At each speed, records the encoder angle when each Hall “arm” switches, drops the first sample after the speed change, averages the next 10, and publishes `arm1_mean_angle` / `arm2_mean_angle`. A rosbag of `motor_rpm` and those means is started with the launch.
+Sweeps motor speed (6, then 10…80 RPM forward, settle at 0, then the same speeds reverse). At each speed, records the encoder angle when each Hall “arm” switches, drops the first sample after the speed change, then publishes the next 20 raw angles on `arm1_switch_angle` / `arm2_switch_angle`. A rosbag of `motor_rpm` and those topics is started with the launch.
 
 ```bash
 ros2 launch experiment_manager experiment.launch.py
@@ -76,3 +76,8 @@ ros2 service call /experiment_manager_node/start_experiment std_srvs/srv/Trigger
 Bag output is written under the launch working directory as `latch_angle_experiment_<timestamp>/`.
 
 Hardware defaults (CAN iface, SPI device, GPIO chip/line, topics) live in each node’s parameters; override with `ros2 param` or launch args as needed.
+
+Get bags on local
+```bash
+rsync -avz benchtestpi@192.168.1.139:/home/benchtestpi/benchTest/latch_angle_experiment_20260807_163012 ./hallTest
+```

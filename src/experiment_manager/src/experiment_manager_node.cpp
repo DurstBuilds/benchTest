@@ -4,10 +4,10 @@
 // ~/start_experiment. The node zeros the encoder, commands RPM through the
 // schedule (6, 10..80 forward, settle at 0, then negative), and for each speed
 // records Hall switch angles for both arms. After discarding the first sample
-// per arm (speed-change transient), averages 10 samples and publishes means.
+// per arm (speed-change transient), publishes the next 20 raw switch angles.
 //
 // Topics:
-//   pub  motor_rpm, arm1_mean_angle, arm2_mean_angle
+//   pub  motor_rpm, arm1_switch_angle, arm2_switch_angle
 //   sub  encoder_angle, knee_sensor
 // Services:
 //   ~/start_experiment  — begin sweep (zeros encoder first)
@@ -29,7 +29,7 @@
 
 namespace
 {
-constexpr std::size_t kSamplesPerArm = 10;
+constexpr std::size_t kSamplesPerArm = 20;
 constexpr double kRpmRepublishHz = 20.0;
 constexpr double kSettleZeroSec = 2.0;
 constexpr const char * kZeroService = "encoder_interface_node/zero";
@@ -60,20 +60,6 @@ double circularDistance(double a_rad, double b_rad)
   return std::abs(std::atan2(std::sin(d), std::cos(d)));
 }
 
-/** Circular mean of angles near a reference (result ≈ reference + small error). */
-double circularMeanAbout(const std::vector<double> & samples, double center_rad)
-{
-  double sum_sin = 0.0;
-  double sum_cos = 0.0;
-  for (const double theta : samples) {
-    const double d = theta - center_rad;
-    sum_sin += std::sin(d);
-    sum_cos += std::cos(d);
-  }
-  const double n = static_cast<double>(samples.size());
-  return center_rad + std::atan2(sum_sin / n, sum_cos / n);
-}
-
 enum class RunPhase
 {
   Idle,
@@ -94,16 +80,16 @@ public:
     const auto angle_topic = declare_parameter<std::string>("angle_topic", "encoder_angle");
     const auto sensor_topic = declare_parameter<std::string>("sensor_topic", "knee_sensor");
     const auto arm1_topic =
-      declare_parameter<std::string>("arm1_mean_topic", "arm1_mean_angle");
+      declare_parameter<std::string>("arm1_angle_topic", "arm1_switch_angle");
     const auto arm2_topic =
-      declare_parameter<std::string>("arm2_mean_topic", "arm2_mean_angle");
+      declare_parameter<std::string>("arm2_angle_topic", "arm2_switch_angle");
     settle_zero_sec_ = declare_parameter<double>("settle_zero_sec", kSettleZeroSec);
     samples_per_arm_ = static_cast<std::size_t>(
       declare_parameter<int>("samples_per_arm", static_cast<int>(kSamplesPerArm)));
 
     rpm_pub_ = create_publisher<std_msgs::msg::Float64>(rpm_topic, 10);
-    arm1_mean_pub_ = create_publisher<std_msgs::msg::Float64>(arm1_topic, 10);
-    arm2_mean_pub_ = create_publisher<std_msgs::msg::Float64>(arm2_topic, 10);
+    arm1_angle_pub_ = create_publisher<std_msgs::msg::Float64>(arm1_topic, 10);
+    arm2_angle_pub_ = create_publisher<std_msgs::msg::Float64>(arm2_topic, 10);
 
     angle_sub_ = create_subscription<std_msgs::msg::Float64>(
       angle_topic, rclcpp::SensorDataQoS(),
@@ -208,8 +194,8 @@ private:
     }
 
     commanded_rpm_ = direction_sign_ * magnitudes_[speed_index_];
-    arm1_samples_.clear();
-    arm2_samples_.clear();
+    arm1_count_ = 0;
+    arm2_count_ = 0;
     discard_arm1_ = true;
     discard_arm2_ = true;
     prev_active_.reset();
@@ -218,7 +204,7 @@ private:
 
     RCLCPP_INFO(
       get_logger(),
-      "Collecting at %.1f RPM (need %zu samples/arm after discard)",
+      "Collecting at %.1f RPM (need %zu raw samples/arm after discard)",
       commanded_rpm_, samples_per_arm_);
   }
 
@@ -261,17 +247,21 @@ private:
     const bool is_arm1 = circularDistance(angle, 0.0) < circularDistance(angle, M_PI);
     recordSample(is_arm1, angle);
 
-    if (arm1_samples_.size() >= samples_per_arm_ &&
-      arm2_samples_.size() >= samples_per_arm_)
-    {
-      publishMeansAndAdvance();
+    if (arm1_count_ >= samples_per_arm_ && arm2_count_ >= samples_per_arm_) {
+      RCLCPP_INFO(
+        get_logger(),
+        "Finished %.1f RPM: published %zu raw samples per arm",
+        commanded_rpm_, samples_per_arm_);
+      ++speed_index_;
+      beginSpeedStep();
     }
   }
 
   void recordSample(bool is_arm1, double angle_rad)
   {
     bool & discard = is_arm1 ? discard_arm1_ : discard_arm2_;
-    auto & samples = is_arm1 ? arm1_samples_ : arm2_samples_;
+    std::size_t & count = is_arm1 ? arm1_count_ : arm2_count_;
+    auto & publisher = is_arm1 ? arm1_angle_pub_ : arm2_angle_pub_;
     const char * arm_name = is_arm1 ? "arm1" : "arm2";
 
     if (discard) {
@@ -283,35 +273,20 @@ private:
       return;
     }
 
-    if (samples.size() >= samples_per_arm_) {
+    if (count >= samples_per_arm_) {
       return;
     }
 
-    samples.push_back(angle_rad);
-    RCLCPP_INFO(
-      get_logger(),
-      "Kept %s sample %zu/%zu at %.1f RPM: %.6f rad",
-      arm_name, samples.size(), samples_per_arm_, commanded_rpm_, angle_rad);
-  }
-
-  void publishMeansAndAdvance()
-  {
-    const double mean1 = circularMeanAbout(arm1_samples_, 0.0);
-    const double mean2 = circularMeanAbout(arm2_samples_, M_PI);
-
     std_msgs::msg::Float64 msg;
-    msg.data = mean1;
-    arm1_mean_pub_->publish(msg);
-    msg.data = mean2;
-    arm2_mean_pub_->publish(msg);
+    msg.data = angle_rad;
+    publisher->publish(msg);
+    ++count;
 
     RCLCPP_INFO(
       get_logger(),
-      "Means at %.1f RPM: arm1=%.6f rad (%.2f deg), arm2=%.6f rad (%.2f deg)",
-      commanded_rpm_, mean1, mean1 * 180.0 / M_PI, mean2, mean2 * 180.0 / M_PI);
-
-    ++speed_index_;
-    beginSpeedStep();
+      "Published %s sample %zu/%zu at %.1f RPM: %.6f rad (%.2f deg)",
+      arm_name, count, samples_per_arm_, commanded_rpm_, angle_rad,
+      angle_rad * 180.0 / M_PI);
   }
 
   void publishRpm(double rpm)
@@ -334,14 +309,14 @@ private:
 
   std::optional<double> latest_angle_rad_;
   std::optional<bool> prev_active_;
-  std::vector<double> arm1_samples_;
-  std::vector<double> arm2_samples_;
+  std::size_t arm1_count_ {0};
+  std::size_t arm2_count_ {0};
   bool discard_arm1_ {true};
   bool discard_arm2_ {true};
 
   rclcpp::Publisher<std_msgs::msg::Float64>::SharedPtr rpm_pub_;
-  rclcpp::Publisher<std_msgs::msg::Float64>::SharedPtr arm1_mean_pub_;
-  rclcpp::Publisher<std_msgs::msg::Float64>::SharedPtr arm2_mean_pub_;
+  rclcpp::Publisher<std_msgs::msg::Float64>::SharedPtr arm1_angle_pub_;
+  rclcpp::Publisher<std_msgs::msg::Float64>::SharedPtr arm2_angle_pub_;
   rclcpp::Subscription<std_msgs::msg::Float64>::SharedPtr angle_sub_;
   rclcpp::Subscription<knee_sensor_interface::msg::KneeSensor>::SharedPtr sensor_sub_;
   rclcpp::Client<std_srvs::srv::Trigger>::SharedPtr zero_client_;
