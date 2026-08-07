@@ -14,7 +14,7 @@
 // Requires libgpiod v2 (libgpiod-dev with API >= 2.0).
 //
 // Parameters (TWEAK via launch or ros2 param):
-//   gpio_chip         — chip device path (default /dev/gpiochip0)
+//   gpio_chip         — chip device path (default /dev/gpiochip4; Pi 5 header)
 //   gpio_line         — BCM line number (default 23)
 //   active_low        — invert open-drain level (default true)
 //   sensor_topic      — publication name (default knee_sensor)
@@ -38,11 +38,11 @@ namespace
 constexpr int64_t kEdgeWaitTimeoutNs = 100000000;  // 100 ms; allows clean shutdown
 constexpr size_t kEdgeEventBufSize = 16;
 
-// Resolve "gpiochip0" → "/dev/gpiochip0"; leave absolute paths unchanged.
+// Resolve "gpiochip4" → "/dev/gpiochip4"; leave absolute paths unchanged.
 std::string resolveChipPath(const std::string & chip)
 {
   if (chip.empty()) {
-    return "/dev/gpiochip0";
+    return "/dev/gpiochip4";
   }
   if (chip.front() == '/') {
     return chip;
@@ -59,7 +59,7 @@ public:
   {
     // TWEAK: chip path, line, polarity, and topic
     gpio_chip_ = resolveChipPath(
-      declare_parameter<std::string>("gpio_chip", "/dev/gpiochip0"));
+      declare_parameter<std::string>("gpio_chip", "/dev/gpiochip4"));
     gpio_line_ = declare_parameter<int>("gpio_line", 23);
     active_low_ = declare_parameter<bool>("active_low", true);
     const auto sensor_topic = declare_parameter<std::string>("sensor_topic", "knee_sensor");

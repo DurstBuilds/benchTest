@@ -49,6 +49,10 @@ install(TARGETS knee_sensor_interface_node calculate_dead_zone
   DESTINATION lib/${PROJECT_NAME}
 )
 
+install(DIRECTORY launch
+  DESTINATION share/${PROJECT_NAME}/
+)
+
 ament_export_dependencies(rosidl_default_runtime)
 
 if(BUILD_TESTING)

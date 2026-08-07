@@ -16,6 +16,9 @@
   <build_depend>libgpiod-dev</build_depend>
 
   <exec_depend>rosidl_default_runtime</exec_depend>
+  <exec_depend>launch_ros</exec_depend>
+  <exec_depend>odrive_interface</exec_depend>
+  <exec_depend>encoder_interface</exec_depend>
 
   <member_of_group>rosidl_interface_packages</member_of_group>
 
