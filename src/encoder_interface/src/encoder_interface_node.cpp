@@ -11,6 +11,9 @@
 //   publish_rate_hz    — read/publish rate (default 1000.0)
 //   angle_topic        — publication name (default encoder_angle)
 //   angle_offset_rad   — added after raw→rad conversion (default 0.0)
+//
+// Services:
+//   ~/zero             — std_srvs/Trigger; set offset so current angle reads 0
 
 #include <cmath>
 #include <cstdint>
@@ -18,6 +21,7 @@
 #include <cstring>
 #include <fcntl.h>
 #include <memory>
+#include <optional>
 #include <stdexcept>
 #include <string>
 #include <unistd.h>
@@ -27,6 +31,7 @@
 
 #include "rclcpp/rclcpp.hpp"
 #include "std_msgs/msg/float64.hpp"
+#include "std_srvs/srv/trigger.hpp"
 
 namespace
 {
@@ -92,6 +97,14 @@ public:
 
     publisher_ = create_publisher<std_msgs::msg::Float64>(angle_topic, rclcpp::SensorDataQoS());
 
+    zero_srv_ = create_service<std_srvs::srv::Trigger>(
+      "~/zero",
+      [this](
+        const std::shared_ptr<std_srvs::srv::Trigger::Request> /*request*/,
+        std::shared_ptr<std_srvs::srv::Trigger::Response> response) {
+        onZero(response);
+      });
+
     const auto period = std::chrono::duration<double>(1.0 / publish_rate_hz);
     timer_ = create_wall_timer(
       std::chrono::duration_cast<std::chrono::nanoseconds>(period),
@@ -99,7 +112,7 @@ public:
 
     RCLCPP_INFO(
       get_logger(),
-      "Publishing AS5047D angle on '%s' at %.1f Hz via %s (%d Hz)",
+      "Publishing AS5047D angle on '%s' at %.1f Hz via %s (%d Hz); zero via ~/zero",
       angle_topic.c_str(), publish_rate_hz, spi_device_.c_str(), spi_speed_hz_);
   }
 
@@ -213,21 +226,40 @@ private:
       return;
     }
 
+    const double raw_rad =
+      static_cast<double>(angle_raw) * (2.0 * M_PI / static_cast<double>(kAngleCounts));
+    last_raw_rad_ = raw_rad;
+
     std_msgs::msg::Float64 msg;
-    msg.data =
-      (static_cast<double>(angle_raw) * (2.0 * M_PI / static_cast<double>(kAngleCounts))) +
-      angle_offset_rad_;
+    msg.data = raw_rad + angle_offset_rad_;
     publisher_->publish(msg);
 
     RCLCPP_DEBUG(get_logger(), "Angle: raw=%u rad=%.6f", angle_raw, msg.data);
   }
 
+  // Set offset so the latest raw reading publishes as ~0 rad.
+  void onZero(const std::shared_ptr<std_srvs::srv::Trigger::Response> response)
+  {
+    if (!last_raw_rad_.has_value()) {
+      response->success = false;
+      response->message = "No encoder sample yet";
+      return;
+    }
+
+    angle_offset_rad_ = -(*last_raw_rad_);
+    response->success = true;
+    response->message = "Encoder zeroed (offset=" + std::to_string(angle_offset_rad_) + " rad)";
+    RCLCPP_INFO(get_logger(), "%s", response->message.c_str());
+  }
+
   std::string spi_device_;
   int spi_speed_hz_ {1000000};
   double angle_offset_rad_ {0.0};
+  std::optional<double> last_raw_rad_;
   int spi_fd_ {-1};
   rclcpp::Publisher<std_msgs::msg::Float64>::SharedPtr publisher_;
   rclcpp::TimerBase::SharedPtr timer_;
+  rclcpp::Service<std_srvs::srv::Trigger>::SharedPtr zero_srv_;
 };
 
 int main(int argc, char * argv[])

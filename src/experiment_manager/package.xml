@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
-  <name>encoder_interface</name>
+  <name>experiment_manager</name>
   <version>0.0.0</version>
-  <description>ROS 2 interface to read an AS5047D shaft encoder over SPI</description>
+  <description>Automated latch-angle experiment: RPM sweep, arm switch means, bag-friendly topics</description>
   <maintainer email="jdurst2000@gmail.com">jdurs</maintainer>
   <license>Apache-2.0</license>
 
@@ -12,6 +12,13 @@
   <depend>rclcpp</depend>
   <depend>std_msgs</depend>
   <depend>std_srvs</depend>
+  <depend>knee_sensor_interface</depend>
+
+  <exec_depend>launch_ros</exec_depend>
+  <exec_depend>odrive_interface</exec_depend>
+  <exec_depend>encoder_interface</exec_depend>
+  <exec_depend>ros2bag</exec_depend>
+  <exec_depend>rosbag2_storage_default_plugins</exec_depend>
 
   <test_depend>ament_lint_auto</test_depend>
   <test_depend>ament_lint_common</test_depend>

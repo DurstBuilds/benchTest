@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.8)
-project(encoder_interface)
+project(experiment_manager)
 
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   add_compile_options(-Wall -Wextra -Wpedantic)
@@ -9,12 +9,23 @@ find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(std_msgs REQUIRED)
 find_package(std_srvs REQUIRED)
+find_package(knee_sensor_interface REQUIRED)
 
-add_executable(encoder_interface_node src/encoder_interface_node.cpp)
-ament_target_dependencies(encoder_interface_node rclcpp std_msgs std_srvs)
+add_executable(experiment_manager_node src/experiment_manager_node.cpp)
+ament_target_dependencies(
+  experiment_manager_node
+  rclcpp
+  std_msgs
+  std_srvs
+  knee_sensor_interface
+)
 
-install(TARGETS encoder_interface_node
+install(TARGETS experiment_manager_node
   DESTINATION lib/${PROJECT_NAME}
+)
+
+install(DIRECTORY launch
+  DESTINATION share/${PROJECT_NAME}/
 )
 
 if(BUILD_TESTING)
