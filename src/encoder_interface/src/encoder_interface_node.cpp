@@ -8,7 +8,7 @@
 // Parameters (TWEAK via launch or ros2 param):
 //   spi_device         — spidev path (default /dev/spidev1.0)
 //   spi_speed_hz       — SPI clock Hz (default 1000000)
-//   publish_rate_hz    — read/publish rate (default 100.0)
+//   publish_rate_hz    — read/publish rate (default 1000.0)
 //   angle_topic        — publication name (default encoder_angle)
 //   angle_offset_rad   — added after raw→rad conversion (default 0.0)
 
@@ -65,7 +65,7 @@ public:
     // TWEAK: spidev path, clock, publish rate, topic, and zero offset
     spi_device_ = declare_parameter<std::string>("spi_device", "/dev/spidev1.0");
     spi_speed_hz_ = declare_parameter<int>("spi_speed_hz", 1000000);
-    const double publish_rate_hz = declare_parameter<double>("publish_rate_hz", 100.0);
+    const double publish_rate_hz = declare_parameter<double>("publish_rate_hz", 1000.0);
     const auto angle_topic = declare_parameter<std::string>("angle_topic", "encoder_angle");
     angle_offset_rad_ = declare_parameter<double>("angle_offset_rad", 0.0);
 
