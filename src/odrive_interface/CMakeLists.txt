@@ -12,7 +12,10 @@ find_package(std_msgs REQUIRED)
 add_executable(odrive_interface_node src/odrive_interface_node.cpp)
 ament_target_dependencies(odrive_interface_node rclcpp std_msgs)
 
-install(TARGETS odrive_interface_node
+add_executable(keyboard_rpm_node src/keyboard_rpm_node.cpp)
+ament_target_dependencies(keyboard_rpm_node rclcpp std_msgs)
+
+install(TARGETS odrive_interface_node keyboard_rpm_node
   DESTINATION lib/${PROJECT_NAME}
 )
 

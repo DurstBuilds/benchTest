@@ -1,11 +1,11 @@
-"""Launch all bench-test nodes: ODrive, encoder, knee sensor, dead-zone."""
+"""Launch all bench-test nodes: ODrive, keyboard RPM, encoder, knee sensor, dead-zone."""
 
 from launch import LaunchDescription
 from launch_ros.actions import Node
 
 
 def generate_launch_description():
-    """Start odrive, encoder, knee sensor, and calculate_dead_zone together."""
+    """Start odrive, keyboard RPM prompt, encoder, knee sensor, and dead-zone."""
     return LaunchDescription(
         [
             Node(
@@ -13,6 +13,14 @@ def generate_launch_description():
                 executable="odrive_interface_node",
                 name="odrive_interface_node",
                 output="screen",
+            ),
+            # Reads /dev/tty so "Enter motor RPM:" works in this launch terminal.
+            Node(
+                package="odrive_interface",
+                executable="keyboard_rpm_node",
+                name="keyboard_rpm_node",
+                output="screen",
+                emulate_tty=True,
             ),
             Node(
                 package="encoder_interface",
