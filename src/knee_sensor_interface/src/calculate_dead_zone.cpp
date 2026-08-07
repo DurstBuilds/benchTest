@@ -41,19 +41,21 @@ public:
     const auto dead_zone_topic =
       declare_parameter<std::string>("dead_zone_topic", "dead_zone");
 
-    const auto qos = rclcpp::SensorDataQoS();
+    // Encoder is high-rate best-effort; latch events are reliable (see knee node).
+    const auto encoder_qos = rclcpp::SensorDataQoS();
+    const auto latch_qos = rclcpp::QoS(10).reliable();
 
     angle_sub_ = create_subscription<std_msgs::msg::Float64>(
-      angle_topic, qos,
+      angle_topic, encoder_qos,
       [this](const std_msgs::msg::Float64::SharedPtr msg) { onAngle(msg); });
 
     sensor_sub_ = create_subscription<knee_sensor_interface::msg::KneeSensor>(
-      sensor_topic, qos,
+      sensor_topic, latch_qos,
       [this](const knee_sensor_interface::msg::KneeSensor::SharedPtr msg) {
         onSensor(msg);
       });
 
-    publisher_ = create_publisher<std_msgs::msg::Float64>(dead_zone_topic, qos);
+    publisher_ = create_publisher<std_msgs::msg::Float64>(dead_zone_topic, latch_qos);
 
     RCLCPP_INFO(
       get_logger(),

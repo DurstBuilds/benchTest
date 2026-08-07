@@ -74,8 +74,9 @@ public:
         ": " + std::strerror(errno));
     }
 
+    // Reliable QoS so ros2 topic echo (and most tools) can see latch events.
     publisher_ = create_publisher<knee_sensor_interface::msg::KneeSensor>(
-      sensor_topic, rclcpp::SensorDataQoS());
+      sensor_topic, rclcpp::QoS(10).reliable());
 
     // Publish current latch state once, then stream on rising/falling edges.
     const int initial_active = readLogicalActive();
@@ -84,7 +85,8 @@ public:
       throw std::runtime_error(
         "Failed to read initial GPIO value: " + std::string(std::strerror(errno)));
     }
-    publishActive(initial_active != 0);
+    last_active_ = (initial_active != 0);
+    publishActive(last_active_);
 
     running_ = true;
     watcher_ = std::thread([this]() { watchEdges(); });
@@ -94,7 +96,7 @@ public:
       "Publishing HS-3511 latch on '%s' via %s line %d "
       "(libgpiod v2 edge detection, active_low=%s, initial active=%s)",
       sensor_topic.c_str(), gpio_chip_.c_str(), gpio_line_,
-      active_low_ ? "true" : "false", initial_active ? "true" : "false");
+      active_low_ ? "true" : "false", last_active_ ? "true" : "false");
   }
 
   ~KneeSensorInterfaceNode() override
@@ -121,6 +123,18 @@ private:
     msg.header.frame_id = "";
     msg.active = active;
     publisher_->publish(msg);
+    last_active_ = active;
+  }
+
+  // Publish only when logical level differs from the last published state.
+  void publishIfChanged(bool active, const char * reason)
+  {
+    if (active == last_active_) {
+      return;
+    }
+    publishActive(active);
+    RCLCPP_INFO(
+      get_logger(), "Hall %s: active=%s", reason, active ? "true" : "false");
   }
 
   // Open chip and request BCM line as input with both-edge detection (libgpiod v2).
@@ -212,6 +226,19 @@ private:
     return value == GPIOD_LINE_VALUE_ACTIVE ? 1 : 0;
   }
 
+  // Re-read logical level and publish if it drifted without an edge event.
+  void catchMissedLevelChange()
+  {
+    const int active = readLogicalActive();
+    if (active < 0) {
+      RCLCPP_WARN_THROTTLE(
+        get_logger(), *get_clock(), 2000,
+        "GPIO level read failed: %s", std::strerror(errno));
+      return;
+    }
+    publishIfChanged(active != 0, "level");
+  }
+
   // Block on GPIO edges in a background thread; publish on each transition.
   void watchEdges()
   {
@@ -226,7 +253,9 @@ private:
         break;
       }
       if (ready == 0) {
-        continue;  // timeout — check running_ / rclcpp::ok()
+        // Timeout: recover from missed edges (slow edges / driver quirks).
+        catchMissedLevelChange();
+        continue;
       }
 
       // GPIO edge events are read here (libgpiod v2).
@@ -244,19 +273,20 @@ private:
           continue;
         }
         const enum gpiod_edge_event_type type = gpiod_edge_event_get_event_type(event);
-        const bool active = edgeToActive(type);
-        publishActive(active);
-        RCLCPP_DEBUG(
-          get_logger(), "Hall edge: %s active=%s",
-          type == GPIOD_EDGE_EVENT_RISING_EDGE ? "rising" : "falling",
-          active ? "true" : "false");
+        publishIfChanged(
+          edgeToActive(type),
+          type == GPIOD_EDGE_EVENT_RISING_EDGE ? "edge-rising" : "edge-falling");
       }
+
+      // Prefer the actual line level after draining the event queue.
+      catchMissedLevelChange();
     }
   }
 
   std::string gpio_chip_;
   int gpio_line_ {23};
   bool active_low_ {true};
+  bool last_active_ {false};
 
   gpiod_line_request * request_ {nullptr};
   gpiod_edge_event_buffer * event_buffer_ {nullptr};
