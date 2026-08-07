@@ -1,8 +1,8 @@
 // calculate_dead_zone: measure angular dead-zone between Hall latch edges.
 //
 // Subscribes to encoder_angle (Float64, rad) and knee_sensor (KneeSensor).
-// On each ON↔OFF latch transition after the first, publishes the absolute
-// shortest-arc angle delta since the previous transition on dead_zone.
+// On each ON↔OFF latch transition after the first, publishes
+// (shortest-arc delta − π) on dead_zone — i.e. difference from a half-turn.
 //
 // Parameters (TWEAK via launch or ros2 param):
 //   angle_topic       — encoder subscription (default encoder_angle)
@@ -93,17 +93,19 @@ private:
     }
 
     const double current_angle = *latest_angle_rad_;
-    const double dead_zone = shortestArcAbs(*prev_transition_angle_rad_, current_angle);
+    const double arc_rad = shortestArcAbs(*prev_transition_angle_rad_, current_angle);
+    const double dead_zone_from_pi = arc_rad - M_PI;
     const char * direction = msg->active ? "OFF->ON" : "ON->OFF";
 
     std_msgs::msg::Float64 out;
-    out.data = dead_zone;
+    out.data = dead_zone_from_pi;
     publisher_->publish(out);
 
     RCLCPP_INFO(
       get_logger(),
-      "Dead-zone %s: %.6f rad (from %.6f to %.6f)",
-      direction, dead_zone, *prev_transition_angle_rad_, current_angle);
+      "Dead-zone %s: arc=%.6f rad, from_pi=%.6f rad (from %.6f to %.6f)",
+      direction, arc_rad, dead_zone_from_pi, *prev_transition_angle_rad_,
+      current_angle);
 
     prev_active_ = msg->active;
     prev_transition_angle_rad_ = current_angle;
